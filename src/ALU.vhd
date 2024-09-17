@@ -96,17 +96,26 @@ begin
 	with func3 select
 		y_ext(32) <= y(31) when "001" | "100" | "110",
 					 '0' when others;
-	
-	mul_res_full	<= std_logic_vector(signed(x_ext) * signed(y_ext));
+
+	MUL1 : entity work.Multiplier
+	port map(
+		dataa	=> x_ext,
+		datab	=> y_ext,
+		result	=> mul_res_full
+	);
 	mul_result		<= mul_res_full(31 downto 0);
 	mulh_result		<= mul_res_full(63 downto 32);
 
-	div_res_full	<= std_logic_vector(signed(x_ext) / signed(y_ext));
-	rem_res_full	<= std_logic_vector(signed(x_ext) mod signed(y_ext));
-
+	DIV1 : entity work.Divider
+	port map(
+		numer		=> x_ext,
+		denom		=> y_ext,
+		quotient	=> div_res_full,
+		remain		=> rem_res_full
+	);
 	div_result		<= div_res_full(31 downto 0);
 	rem_result		<= rem_res_full(31 downto 0);
-	
+
 	with (func3) select
 		res2 <= mul_result when "000",
 				mulh_result when "001" | "010" | "011",
@@ -118,4 +127,5 @@ begin
 		z <= res1 when '0',
 			 res2 when '1',
 			(others => 'X') when others;
+
 end architecture;
