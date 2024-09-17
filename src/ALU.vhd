@@ -15,6 +15,8 @@ architecture arch of ALU is
 	signal x_signed, y_signed		: signed(31 downto 0);
 	signal x_unsigned, y_unsigned	: unsigned(31 downto 0);
 
+	signal x_ext, y_ext				: std_logic_vector(32 downto 0);
+
 	signal shift_amount	: integer range 0 to 31;
 
 	signal lt, ltu	: boolean;
@@ -33,15 +35,13 @@ architecture arch of ALU is
 			res1_101,
 			mul_result,
 			mulh_result,
-			mulhsu_result,
-			mulhu_result,
 			div_result,
-			divu_result,
-			rem_result,
-			remu_result		: std_logic_vector(31 downto 0);
+			rem_result		: std_logic_vector(31 downto 0);
 
-	signal mul_ss, mul_uu	: std_logic_vector(63 downto 0);
-	signal mul_su			: std_logic_vector(64 downto 0);
+	signal mul_res_full		: std_logic_vector(65 downto 0);
+
+	signal div_res_full,
+			rem_res_full	: std_logic_vector(32 downto 0);
 
 	signal res1, res2	: std_logic_vector(31 downto 0);
 
@@ -87,29 +87,31 @@ begin
 				(others => 'X') when others;
 	
 	-- "M"
-	mul_ss	<= std_logic_vector(x_signed * y_signed);
-	mul_uu	<= std_logic_vector(x_unsigned * y_unsigned);
-	mul_su	<= std_logic_vector(x_signed * signed('0' & y));
+	x_ext(31 downto 0) <= x;
+	y_ext(31 downto 0) <= y;
 
-	mul_result		<= mul_ss(31 downto 0);
-	mulh_result		<= mul_ss(63 downto 32);
-	mulhsu_result	<= mul_su(63 downto 32);
-	mulhu_result	<= mul_uu(63 downto 32);
+	with func3 select
+		x_ext(32) <= x(31) when "001" | "010" | "100" | "110",
+					 '0' when others;
+	with func3 select
+		y_ext(32) <= y(31) when "001" | "100" | "110",
+					 '0' when others;
+	
+	mul_res_full	<= std_logic_vector(signed(x_ext) * signed(y_ext));
+	mul_result		<= mul_res_full(31 downto 0);
+	mulh_result		<= mul_res_full(63 downto 32);
 
-	div_result		<= std_logic_vector(x_signed / y_signed);
-	divu_result		<= std_logic_vector(x_unsigned / y_unsigned);
-	rem_result		<= std_logic_vector(x_signed mod y_signed);
-	remu_result		<= std_logic_vector(x_unsigned mod y_unsigned);
+	div_res_full	<= std_logic_vector(signed(x_ext) / signed(y_ext));
+	rem_res_full	<= std_logic_vector(signed(x_ext) mod signed(y_ext));
 
+	div_result		<= div_res_full(31 downto 0);
+	rem_result		<= rem_res_full(31 downto 0);
+	
 	with (func3) select
 		res2 <= mul_result when "000",
-				mulh_result when "001",
-				mulhsu_result when "010",
-				mulhu_result when "011",
-				div_result when "100",
-				divu_result when "101",
-				rem_result when "110",
-				remu_result when "111",
+				mulh_result when "001" | "010" | "011",
+				div_result when "100" | "101",
+				rem_result when "110" | "111",
 				(others => 'X') when others;
 
 	with (func7(0)) select
