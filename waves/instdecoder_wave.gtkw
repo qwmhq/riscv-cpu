@@ -1,0 +1,35 @@
+[*]
+[*] GTKWave Analyzer v3.3.104 (w)1999-2020 BSI
+[*] Fri Aug 16 04:09:49 2024
+[*]
+[dumpfile] "/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/waves/instdecoder_wave.ghw"
+[dumpfile_mtime] "Thu Aug 15 20:33:28 2024"
+[dumpfile_size] 3771
+[savefile] "/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/waves/instdecoder_wave.gtkw"
+[timestart] 0
+[size] 1920 1016
+[pos] -1 -1
+*-23.000000 63460000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] top.
+[treeopen] top.instdecoder_tb.
+[sst_width] 233
+[signals_width] 118
+[sst_expanded] 1
+[sst_vpaned_height] 278
+@22
+#{top.instdecoder_tb.inst[31:0]} top.instdecoder_tb.inst[31] top.instdecoder_tb.inst[30] top.instdecoder_tb.inst[29] top.instdecoder_tb.inst[28] top.instdecoder_tb.inst[27] top.instdecoder_tb.inst[26] top.instdecoder_tb.inst[25] top.instdecoder_tb.inst[24] top.instdecoder_tb.inst[23] top.instdecoder_tb.inst[22] top.instdecoder_tb.inst[21] top.instdecoder_tb.inst[20] top.instdecoder_tb.inst[19] top.instdecoder_tb.inst[18] top.instdecoder_tb.inst[17] top.instdecoder_tb.inst[16] top.instdecoder_tb.inst[15] top.instdecoder_tb.inst[14] top.instdecoder_tb.inst[13] top.instdecoder_tb.inst[12] top.instdecoder_tb.inst[11] top.instdecoder_tb.inst[10] top.instdecoder_tb.inst[9] top.instdecoder_tb.inst[8] top.instdecoder_tb.inst[7] top.instdecoder_tb.inst[6] top.instdecoder_tb.inst[5] top.instdecoder_tb.inst[4] top.instdecoder_tb.inst[3] top.instdecoder_tb.inst[2] top.instdecoder_tb.inst[1] top.instdecoder_tb.inst[0]
+@28
+#{top.instdecoder_tb.opcode[6:0]} top.instdecoder_tb.opcode[6] top.instdecoder_tb.opcode[5] top.instdecoder_tb.opcode[4] top.instdecoder_tb.opcode[3] top.instdecoder_tb.opcode[2] top.instdecoder_tb.opcode[1] top.instdecoder_tb.opcode[0]
+@24
+#{top.instdecoder_tb.rd[4:0]} top.instdecoder_tb.rd[4] top.instdecoder_tb.rd[3] top.instdecoder_tb.rd[2] top.instdecoder_tb.rd[1] top.instdecoder_tb.rd[0]
+#{top.instdecoder_tb.rs1[4:0]} top.instdecoder_tb.rs1[4] top.instdecoder_tb.rs1[3] top.instdecoder_tb.rs1[2] top.instdecoder_tb.rs1[1] top.instdecoder_tb.rs1[0]
+#{top.instdecoder_tb.rs2[4:0]} top.instdecoder_tb.rs2[4] top.instdecoder_tb.rs2[3] top.instdecoder_tb.rs2[2] top.instdecoder_tb.rs2[1] top.instdecoder_tb.rs2[0]
+@28
+#{top.instdecoder_tb.funct3[2:0]} top.instdecoder_tb.funct3[2] top.instdecoder_tb.funct3[1] top.instdecoder_tb.funct3[0]
+#{top.instdecoder_tb.funct7[6:0]} top.instdecoder_tb.funct7[6] top.instdecoder_tb.funct7[5] top.instdecoder_tb.funct7[4] top.instdecoder_tb.funct7[3] top.instdecoder_tb.funct7[2] top.instdecoder_tb.funct7[1] top.instdecoder_tb.funct7[0]
+@22
+#{top.instdecoder_tb.imm[31:0]} top.instdecoder_tb.imm[31] top.instdecoder_tb.imm[30] top.instdecoder_tb.imm[29] top.instdecoder_tb.imm[28] top.instdecoder_tb.imm[27] top.instdecoder_tb.imm[26] top.instdecoder_tb.imm[25] top.instdecoder_tb.imm[24] top.instdecoder_tb.imm[23] top.instdecoder_tb.imm[22] top.instdecoder_tb.imm[21] top.instdecoder_tb.imm[20] top.instdecoder_tb.imm[19] top.instdecoder_tb.imm[18] top.instdecoder_tb.imm[17] top.instdecoder_tb.imm[16] top.instdecoder_tb.imm[15] top.instdecoder_tb.imm[14] top.instdecoder_tb.imm[13] top.instdecoder_tb.imm[12] top.instdecoder_tb.imm[11] top.instdecoder_tb.imm[10] top.instdecoder_tb.imm[9] top.instdecoder_tb.imm[8] top.instdecoder_tb.imm[7] top.instdecoder_tb.imm[6] top.instdecoder_tb.imm[5] top.instdecoder_tb.imm[4] top.instdecoder_tb.imm[3] top.instdecoder_tb.imm[2] top.instdecoder_tb.imm[1] top.instdecoder_tb.imm[0]
+@421
+#{top.instdecoder_tb.imm[31:0]} top.instdecoder_tb.imm[31] top.instdecoder_tb.imm[30] top.instdecoder_tb.imm[29] top.instdecoder_tb.imm[28] top.instdecoder_tb.imm[27] top.instdecoder_tb.imm[26] top.instdecoder_tb.imm[25] top.instdecoder_tb.imm[24] top.instdecoder_tb.imm[23] top.instdecoder_tb.imm[22] top.instdecoder_tb.imm[21] top.instdecoder_tb.imm[20] top.instdecoder_tb.imm[19] top.instdecoder_tb.imm[18] top.instdecoder_tb.imm[17] top.instdecoder_tb.imm[16] top.instdecoder_tb.imm[15] top.instdecoder_tb.imm[14] top.instdecoder_tb.imm[13] top.instdecoder_tb.imm[12] top.instdecoder_tb.imm[11] top.instdecoder_tb.imm[10] top.instdecoder_tb.imm[9] top.instdecoder_tb.imm[8] top.instdecoder_tb.imm[7] top.instdecoder_tb.imm[6] top.instdecoder_tb.imm[5] top.instdecoder_tb.imm[4] top.instdecoder_tb.imm[3] top.instdecoder_tb.imm[2] top.instdecoder_tb.imm[1] top.instdecoder_tb.imm[0]
+[pattern_trace] 1
+[pattern_trace] 0

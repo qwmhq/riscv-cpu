@@ -1,0 +1,7 @@
+Address     Code        Basic                        Line Source
+
+0x00400000  0x000642b7  lui x5,0x00000064            5    	lui t0, 100			# t0 = 4096 * 100 = 409600
+0x00400004  0x14c28293  addi x5,x5,0x0000014c        6    	addi t0, t0, 332	# t0 = t0 + 332
+0x00400008  0x00064337  lui x6,0x00000064            7    	lui t1, 100			# t1 = 4096 * 100 = 409600
+0x0040000c  0x0df30313  addi x6,x6,0x000000df        8    	addi t1, t1, 223	# t1 = t1 + 223
+0x00400010  0x006283b3  add x7,x5,x6                 9    	add t2, t0, t1		# t2 = t0 + t1

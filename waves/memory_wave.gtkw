@@ -1,0 +1,36 @@
+[*]
+[*] GTKWave Analyzer v3.3.104 (w)1999-2020 BSI
+[*] Tue Aug 20 14:01:45 2024
+[*]
+[dumpfile] "/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/waves/memory_wave.vcd"
+[dumpfile_mtime] "Tue Aug 20 12:57:40 2024"
+[dumpfile_size] 141065
+[savefile] "/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/waves/memory_wave.gtkw"
+[timestart] 391
+[size] 1223 749
+[pos] 28 4
+*-4.597062 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[sst_width] 233
+[signals_width] 158
+[sst_expanded] 1
+[sst_vpaned_height] 185
+@28
+memory_tb.clock
+memory_tb.reset
+@22
+#{memory_tb.data_in_a[31:0]} memory_tb.data_in_a[31] memory_tb.data_in_a[30] memory_tb.data_in_a[29] memory_tb.data_in_a[28] memory_tb.data_in_a[27] memory_tb.data_in_a[26] memory_tb.data_in_a[25] memory_tb.data_in_a[24] memory_tb.data_in_a[23] memory_tb.data_in_a[22] memory_tb.data_in_a[21] memory_tb.data_in_a[20] memory_tb.data_in_a[19] memory_tb.data_in_a[18] memory_tb.data_in_a[17] memory_tb.data_in_a[16] memory_tb.data_in_a[15] memory_tb.data_in_a[14] memory_tb.data_in_a[13] memory_tb.data_in_a[12] memory_tb.data_in_a[11] memory_tb.data_in_a[10] memory_tb.data_in_a[9] memory_tb.data_in_a[8] memory_tb.data_in_a[7] memory_tb.data_in_a[6] memory_tb.data_in_a[5] memory_tb.data_in_a[4] memory_tb.data_in_a[3] memory_tb.data_in_a[2] memory_tb.data_in_a[1] memory_tb.data_in_a[0]
+#{memory_tb.addr_a[14:0]} memory_tb.addr_a[14] memory_tb.addr_a[13] memory_tb.addr_a[12] memory_tb.addr_a[11] memory_tb.addr_a[10] memory_tb.addr_a[9] memory_tb.addr_a[8] memory_tb.addr_a[7] memory_tb.addr_a[6] memory_tb.addr_a[5] memory_tb.addr_a[4] memory_tb.addr_a[3] memory_tb.addr_a[2] memory_tb.addr_a[1] memory_tb.addr_a[0]
+@28
+#{memory_tb.mode_a[2:0]} memory_tb.mode_a[2] memory_tb.mode_a[1] memory_tb.mode_a[0]
+memory_tb.wren_a
+@22
+#{memory_tb.data_out_a[31:0]} memory_tb.data_out_a[31] memory_tb.data_out_a[30] memory_tb.data_out_a[29] memory_tb.data_out_a[28] memory_tb.data_out_a[27] memory_tb.data_out_a[26] memory_tb.data_out_a[25] memory_tb.data_out_a[24] memory_tb.data_out_a[23] memory_tb.data_out_a[22] memory_tb.data_out_a[21] memory_tb.data_out_a[20] memory_tb.data_out_a[19] memory_tb.data_out_a[18] memory_tb.data_out_a[17] memory_tb.data_out_a[16] memory_tb.data_out_a[15] memory_tb.data_out_a[14] memory_tb.data_out_a[13] memory_tb.data_out_a[12] memory_tb.data_out_a[11] memory_tb.data_out_a[10] memory_tb.data_out_a[9] memory_tb.data_out_a[8] memory_tb.data_out_a[7] memory_tb.data_out_a[6] memory_tb.data_out_a[5] memory_tb.data_out_a[4] memory_tb.data_out_a[3] memory_tb.data_out_a[2] memory_tb.data_out_a[1] memory_tb.data_out_a[0]
+#{memory_tb.data_in_b[31:0]} memory_tb.data_in_b[31] memory_tb.data_in_b[30] memory_tb.data_in_b[29] memory_tb.data_in_b[28] memory_tb.data_in_b[27] memory_tb.data_in_b[26] memory_tb.data_in_b[25] memory_tb.data_in_b[24] memory_tb.data_in_b[23] memory_tb.data_in_b[22] memory_tb.data_in_b[21] memory_tb.data_in_b[20] memory_tb.data_in_b[19] memory_tb.data_in_b[18] memory_tb.data_in_b[17] memory_tb.data_in_b[16] memory_tb.data_in_b[15] memory_tb.data_in_b[14] memory_tb.data_in_b[13] memory_tb.data_in_b[12] memory_tb.data_in_b[11] memory_tb.data_in_b[10] memory_tb.data_in_b[9] memory_tb.data_in_b[8] memory_tb.data_in_b[7] memory_tb.data_in_b[6] memory_tb.data_in_b[5] memory_tb.data_in_b[4] memory_tb.data_in_b[3] memory_tb.data_in_b[2] memory_tb.data_in_b[1] memory_tb.data_in_b[0]
+#{memory_tb.addr_b[14:0]} memory_tb.addr_b[14] memory_tb.addr_b[13] memory_tb.addr_b[12] memory_tb.addr_b[11] memory_tb.addr_b[10] memory_tb.addr_b[9] memory_tb.addr_b[8] memory_tb.addr_b[7] memory_tb.addr_b[6] memory_tb.addr_b[5] memory_tb.addr_b[4] memory_tb.addr_b[3] memory_tb.addr_b[2] memory_tb.addr_b[1] memory_tb.addr_b[0]
+@28
+#{memory_tb.mode_b[2:0]} memory_tb.mode_b[2] memory_tb.mode_b[1] memory_tb.mode_b[0]
+memory_tb.wren_b
+@23
+#{memory_tb.data_out_b[31:0]} memory_tb.data_out_b[31] memory_tb.data_out_b[30] memory_tb.data_out_b[29] memory_tb.data_out_b[28] memory_tb.data_out_b[27] memory_tb.data_out_b[26] memory_tb.data_out_b[25] memory_tb.data_out_b[24] memory_tb.data_out_b[23] memory_tb.data_out_b[22] memory_tb.data_out_b[21] memory_tb.data_out_b[20] memory_tb.data_out_b[19] memory_tb.data_out_b[18] memory_tb.data_out_b[17] memory_tb.data_out_b[16] memory_tb.data_out_b[15] memory_tb.data_out_b[14] memory_tb.data_out_b[13] memory_tb.data_out_b[12] memory_tb.data_out_b[11] memory_tb.data_out_b[10] memory_tb.data_out_b[9] memory_tb.data_out_b[8] memory_tb.data_out_b[7] memory_tb.data_out_b[6] memory_tb.data_out_b[5] memory_tb.data_out_b[4] memory_tb.data_out_b[3] memory_tb.data_out_b[2] memory_tb.data_out_b[1] memory_tb.data_out_b[0]
+[pattern_trace] 1
+[pattern_trace] 0

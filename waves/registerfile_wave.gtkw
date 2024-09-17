@@ -1,0 +1,37 @@
+[*]
+[*] GTKWave Analyzer v3.3.116 (w)1999-2023 BSI
+[*] Tue Sep  3 08:04:22 2024
+[*]
+[dumpfile] "/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/waves/registerfile_wave.ghw"
+[dumpfile_mtime] "Tue Sep  3 08:03:27 2024"
+[dumpfile_size] 14303
+[savefile] "/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/waves/registerfile_wave.gtkw"
+[timestart] 621900000
+[size] 1000 600
+[pos] -1 -1
+*-25.000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] top.
+[treeopen] top.registerfile_tb.
+[sst_width] 278
+[signals_width] 134
+[sst_expanded] 1
+[sst_vpaned_height] 185
+@28
+top.registerfile_tb.clk
+top.registerfile_tb.reset
+top.registerfile_tb.wr_en
+@24
+#{top.registerfile_tb.rs1[4:0]} top.registerfile_tb.rs1[4] top.registerfile_tb.rs1[3] top.registerfile_tb.rs1[2] top.registerfile_tb.rs1[1] top.registerfile_tb.rs1[0]
+#{top.registerfile_tb.rs2[4:0]} top.registerfile_tb.rs2[4] top.registerfile_tb.rs2[3] top.registerfile_tb.rs2[2] top.registerfile_tb.rs2[1] top.registerfile_tb.rs2[0]
+@22
+#{top.registerfile_tb.rs3[4:0]} top.registerfile_tb.rs3[4] top.registerfile_tb.rs3[3] top.registerfile_tb.rs3[2] top.registerfile_tb.rs3[1] top.registerfile_tb.rs3[0]
+@24
+#{top.registerfile_tb.rd[4:0]} top.registerfile_tb.rd[4] top.registerfile_tb.rd[3] top.registerfile_tb.rd[2] top.registerfile_tb.rd[1] top.registerfile_tb.rd[0]
+@22
+#{top.registerfile_tb.data_in[31:0]} top.registerfile_tb.data_in[31] top.registerfile_tb.data_in[30] top.registerfile_tb.data_in[29] top.registerfile_tb.data_in[28] top.registerfile_tb.data_in[27] top.registerfile_tb.data_in[26] top.registerfile_tb.data_in[25] top.registerfile_tb.data_in[24] top.registerfile_tb.data_in[23] top.registerfile_tb.data_in[22] top.registerfile_tb.data_in[21] top.registerfile_tb.data_in[20] top.registerfile_tb.data_in[19] top.registerfile_tb.data_in[18] top.registerfile_tb.data_in[17] top.registerfile_tb.data_in[16] top.registerfile_tb.data_in[15] top.registerfile_tb.data_in[14] top.registerfile_tb.data_in[13] top.registerfile_tb.data_in[12] top.registerfile_tb.data_in[11] top.registerfile_tb.data_in[10] top.registerfile_tb.data_in[9] top.registerfile_tb.data_in[8] top.registerfile_tb.data_in[7] top.registerfile_tb.data_in[6] top.registerfile_tb.data_in[5] top.registerfile_tb.data_in[4] top.registerfile_tb.data_in[3] top.registerfile_tb.data_in[2] top.registerfile_tb.data_in[1] top.registerfile_tb.data_in[0]
+#{top.registerfile_tb.r1[31:0]} top.registerfile_tb.r1[31] top.registerfile_tb.r1[30] top.registerfile_tb.r1[29] top.registerfile_tb.r1[28] top.registerfile_tb.r1[27] top.registerfile_tb.r1[26] top.registerfile_tb.r1[25] top.registerfile_tb.r1[24] top.registerfile_tb.r1[23] top.registerfile_tb.r1[22] top.registerfile_tb.r1[21] top.registerfile_tb.r1[20] top.registerfile_tb.r1[19] top.registerfile_tb.r1[18] top.registerfile_tb.r1[17] top.registerfile_tb.r1[16] top.registerfile_tb.r1[15] top.registerfile_tb.r1[14] top.registerfile_tb.r1[13] top.registerfile_tb.r1[12] top.registerfile_tb.r1[11] top.registerfile_tb.r1[10] top.registerfile_tb.r1[9] top.registerfile_tb.r1[8] top.registerfile_tb.r1[7] top.registerfile_tb.r1[6] top.registerfile_tb.r1[5] top.registerfile_tb.r1[4] top.registerfile_tb.r1[3] top.registerfile_tb.r1[2] top.registerfile_tb.r1[1] top.registerfile_tb.r1[0]
+#{top.registerfile_tb.r2[31:0]} top.registerfile_tb.r2[31] top.registerfile_tb.r2[30] top.registerfile_tb.r2[29] top.registerfile_tb.r2[28] top.registerfile_tb.r2[27] top.registerfile_tb.r2[26] top.registerfile_tb.r2[25] top.registerfile_tb.r2[24] top.registerfile_tb.r2[23] top.registerfile_tb.r2[22] top.registerfile_tb.r2[21] top.registerfile_tb.r2[20] top.registerfile_tb.r2[19] top.registerfile_tb.r2[18] top.registerfile_tb.r2[17] top.registerfile_tb.r2[16] top.registerfile_tb.r2[15] top.registerfile_tb.r2[14] top.registerfile_tb.r2[13] top.registerfile_tb.r2[12] top.registerfile_tb.r2[11] top.registerfile_tb.r2[10] top.registerfile_tb.r2[9] top.registerfile_tb.r2[8] top.registerfile_tb.r2[7] top.registerfile_tb.r2[6] top.registerfile_tb.r2[5] top.registerfile_tb.r2[4] top.registerfile_tb.r2[3] top.registerfile_tb.r2[2] top.registerfile_tb.r2[1] top.registerfile_tb.r2[0]
+@23
+#{top.registerfile_tb.r3[31:0]} top.registerfile_tb.r3[31] top.registerfile_tb.r3[30] top.registerfile_tb.r3[29] top.registerfile_tb.r3[28] top.registerfile_tb.r3[27] top.registerfile_tb.r3[26] top.registerfile_tb.r3[25] top.registerfile_tb.r3[24] top.registerfile_tb.r3[23] top.registerfile_tb.r3[22] top.registerfile_tb.r3[21] top.registerfile_tb.r3[20] top.registerfile_tb.r3[19] top.registerfile_tb.r3[18] top.registerfile_tb.r3[17] top.registerfile_tb.r3[16] top.registerfile_tb.r3[15] top.registerfile_tb.r3[14] top.registerfile_tb.r3[13] top.registerfile_tb.r3[12] top.registerfile_tb.r3[11] top.registerfile_tb.r3[10] top.registerfile_tb.r3[9] top.registerfile_tb.r3[8] top.registerfile_tb.r3[7] top.registerfile_tb.r3[6] top.registerfile_tb.r3[5] top.registerfile_tb.r3[4] top.registerfile_tb.r3[3] top.registerfile_tb.r3[2] top.registerfile_tb.r3[1] top.registerfile_tb.r3[0]
+[pattern_trace] 1
+[pattern_trace] 0

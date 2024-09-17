@@ -1,0 +1,27 @@
+[*]
+[*] GTKWave Analyzer v3.3.104 (w)1999-2020 BSI
+[*] Sat Aug 17 17:31:48 2024
+[*]
+[dumpfile] "/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/waves/programcounter_wave.ghw"
+[dumpfile_mtime] "Sat Aug 17 17:08:39 2024"
+[dumpfile_size] 1113
+[savefile] "/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/waves/programcounter_wave.gtkw"
+[timestart] 0
+[size] 1223 749
+[pos] 2 2
+*-24.000000 10000000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] top.
+[treeopen] top.programcounter_tb.
+[sst_width] 233
+[signals_width] 205
+[sst_expanded] 1
+[sst_vpaned_height] 185
+@23
+#{top.programcounter_tb.pc_next[31:0]} top.programcounter_tb.pc_next[31] top.programcounter_tb.pc_next[30] top.programcounter_tb.pc_next[29] top.programcounter_tb.pc_next[28] top.programcounter_tb.pc_next[27] top.programcounter_tb.pc_next[26] top.programcounter_tb.pc_next[25] top.programcounter_tb.pc_next[24] top.programcounter_tb.pc_next[23] top.programcounter_tb.pc_next[22] top.programcounter_tb.pc_next[21] top.programcounter_tb.pc_next[20] top.programcounter_tb.pc_next[19] top.programcounter_tb.pc_next[18] top.programcounter_tb.pc_next[17] top.programcounter_tb.pc_next[16] top.programcounter_tb.pc_next[15] top.programcounter_tb.pc_next[14] top.programcounter_tb.pc_next[13] top.programcounter_tb.pc_next[12] top.programcounter_tb.pc_next[11] top.programcounter_tb.pc_next[10] top.programcounter_tb.pc_next[9] top.programcounter_tb.pc_next[8] top.programcounter_tb.pc_next[7] top.programcounter_tb.pc_next[6] top.programcounter_tb.pc_next[5] top.programcounter_tb.pc_next[4] top.programcounter_tb.pc_next[3] top.programcounter_tb.pc_next[2] top.programcounter_tb.pc_next[1] top.programcounter_tb.pc_next[0]
+@28
+top.programcounter_tb.clk
+top.programcounter_tb.reset
+@22
+#{top.programcounter_tb.pc[31:0]} top.programcounter_tb.pc[31] top.programcounter_tb.pc[30] top.programcounter_tb.pc[29] top.programcounter_tb.pc[28] top.programcounter_tb.pc[27] top.programcounter_tb.pc[26] top.programcounter_tb.pc[25] top.programcounter_tb.pc[24] top.programcounter_tb.pc[23] top.programcounter_tb.pc[22] top.programcounter_tb.pc[21] top.programcounter_tb.pc[20] top.programcounter_tb.pc[19] top.programcounter_tb.pc[18] top.programcounter_tb.pc[17] top.programcounter_tb.pc[16] top.programcounter_tb.pc[15] top.programcounter_tb.pc[14] top.programcounter_tb.pc[13] top.programcounter_tb.pc[12] top.programcounter_tb.pc[11] top.programcounter_tb.pc[10] top.programcounter_tb.pc[9] top.programcounter_tb.pc[8] top.programcounter_tb.pc[7] top.programcounter_tb.pc[6] top.programcounter_tb.pc[5] top.programcounter_tb.pc[4] top.programcounter_tb.pc[3] top.programcounter_tb.pc[2] top.programcounter_tb.pc[1] top.programcounter_tb.pc[0]
+[pattern_trace] 1
+[pattern_trace] 0

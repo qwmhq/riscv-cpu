@@ -1,0 +1,50 @@
+[*]
+[*] GTKWave Analyzer v3.3.104 (w)1999-2020 BSI
+[*] Sun Aug 18 13:08:49 2024
+[*]
+[dumpfile] "/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/waves/top_wave.vcd"
+[dumpfile_mtime] "Sun Aug 18 13:03:10 2024"
+[dumpfile_size] 236296
+[savefile] "/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/waves/top_wave.gtkw"
+[timestart] 83
+[size] 1223 749
+[pos] -384 166
+*-4.586661 160 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] top_tb.
+[treeopen] top_tb.UUT.
+[sst_width] 233
+[signals_width] 198
+[sst_expanded] 1
+[sst_vpaned_height] 185
+@28
+top_tb.clk
+top_tb.reset
+top_tb.instmem_wren
+@22
+#{top_tb.instmem_data_in[31:0]} top_tb.instmem_data_in[31] top_tb.instmem_data_in[30] top_tb.instmem_data_in[29] top_tb.instmem_data_in[28] top_tb.instmem_data_in[27] top_tb.instmem_data_in[26] top_tb.instmem_data_in[25] top_tb.instmem_data_in[24] top_tb.instmem_data_in[23] top_tb.instmem_data_in[22] top_tb.instmem_data_in[21] top_tb.instmem_data_in[20] top_tb.instmem_data_in[19] top_tb.instmem_data_in[18] top_tb.instmem_data_in[17] top_tb.instmem_data_in[16] top_tb.instmem_data_in[15] top_tb.instmem_data_in[14] top_tb.instmem_data_in[13] top_tb.instmem_data_in[12] top_tb.instmem_data_in[11] top_tb.instmem_data_in[10] top_tb.instmem_data_in[9] top_tb.instmem_data_in[8] top_tb.instmem_data_in[7] top_tb.instmem_data_in[6] top_tb.instmem_data_in[5] top_tb.instmem_data_in[4] top_tb.instmem_data_in[3] top_tb.instmem_data_in[2] top_tb.instmem_data_in[1] top_tb.instmem_data_in[0]
+#{top_tb.instmem_wr_addr[11:0]} top_tb.instmem_wr_addr[11] top_tb.instmem_wr_addr[10] top_tb.instmem_wr_addr[9] top_tb.instmem_wr_addr[8] top_tb.instmem_wr_addr[7] top_tb.instmem_wr_addr[6] top_tb.instmem_wr_addr[5] top_tb.instmem_wr_addr[4] top_tb.instmem_wr_addr[3] top_tb.instmem_wr_addr[2] top_tb.instmem_wr_addr[1] top_tb.instmem_wr_addr[0]
+#{top_tb.UUT.CPU.pc[31:0]} top_tb.UUT.CPU.pc[31] top_tb.UUT.CPU.pc[30] top_tb.UUT.CPU.pc[29] top_tb.UUT.CPU.pc[28] top_tb.UUT.CPU.pc[27] top_tb.UUT.CPU.pc[26] top_tb.UUT.CPU.pc[25] top_tb.UUT.CPU.pc[24] top_tb.UUT.CPU.pc[23] top_tb.UUT.CPU.pc[22] top_tb.UUT.CPU.pc[21] top_tb.UUT.CPU.pc[20] top_tb.UUT.CPU.pc[19] top_tb.UUT.CPU.pc[18] top_tb.UUT.CPU.pc[17] top_tb.UUT.CPU.pc[16] top_tb.UUT.CPU.pc[15] top_tb.UUT.CPU.pc[14] top_tb.UUT.CPU.pc[13] top_tb.UUT.CPU.pc[12] top_tb.UUT.CPU.pc[11] top_tb.UUT.CPU.pc[10] top_tb.UUT.CPU.pc[9] top_tb.UUT.CPU.pc[8] top_tb.UUT.CPU.pc[7] top_tb.UUT.CPU.pc[6] top_tb.UUT.CPU.pc[5] top_tb.UUT.CPU.pc[4] top_tb.UUT.CPU.pc[3] top_tb.UUT.CPU.pc[2] top_tb.UUT.CPU.pc[1] top_tb.UUT.CPU.pc[0]
+#{top_tb.UUT.inst[31:0]} top_tb.UUT.inst[31] top_tb.UUT.inst[30] top_tb.UUT.inst[29] top_tb.UUT.inst[28] top_tb.UUT.inst[27] top_tb.UUT.inst[26] top_tb.UUT.inst[25] top_tb.UUT.inst[24] top_tb.UUT.inst[23] top_tb.UUT.inst[22] top_tb.UUT.inst[21] top_tb.UUT.inst[20] top_tb.UUT.inst[19] top_tb.UUT.inst[18] top_tb.UUT.inst[17] top_tb.UUT.inst[16] top_tb.UUT.inst[15] top_tb.UUT.inst[14] top_tb.UUT.inst[13] top_tb.UUT.inst[12] top_tb.UUT.inst[11] top_tb.UUT.inst[10] top_tb.UUT.inst[9] top_tb.UUT.inst[8] top_tb.UUT.inst[7] top_tb.UUT.inst[6] top_tb.UUT.inst[5] top_tb.UUT.inst[4] top_tb.UUT.inst[3] top_tb.UUT.inst[2] top_tb.UUT.inst[1] top_tb.UUT.inst[0]
+@28
+#{top_tb.UUT.CPU.opcode[6:0]} top_tb.UUT.CPU.opcode[6] top_tb.UUT.CPU.opcode[5] top_tb.UUT.CPU.opcode[4] top_tb.UUT.CPU.opcode[3] top_tb.UUT.CPU.opcode[2] top_tb.UUT.CPU.opcode[1] top_tb.UUT.CPU.opcode[0]
+@24
+#{top_tb.UUT.CPU.rs1[4:0]} top_tb.UUT.CPU.rs1[4] top_tb.UUT.CPU.rs1[3] top_tb.UUT.CPU.rs1[2] top_tb.UUT.CPU.rs1[1] top_tb.UUT.CPU.rs1[0]
+#{top_tb.UUT.CPU.rs2[4:0]} top_tb.UUT.CPU.rs2[4] top_tb.UUT.CPU.rs2[3] top_tb.UUT.CPU.rs2[2] top_tb.UUT.CPU.rs2[1] top_tb.UUT.CPU.rs2[0]
+#{top_tb.UUT.CPU.rd[4:0]} top_tb.UUT.CPU.rd[4] top_tb.UUT.CPU.rd[3] top_tb.UUT.CPU.rd[2] top_tb.UUT.CPU.rd[1] top_tb.UUT.CPU.rd[0]
+@22
+#{top_tb.UUT.CPU.imm[31:0]} top_tb.UUT.CPU.imm[31] top_tb.UUT.CPU.imm[30] top_tb.UUT.CPU.imm[29] top_tb.UUT.CPU.imm[28] top_tb.UUT.CPU.imm[27] top_tb.UUT.CPU.imm[26] top_tb.UUT.CPU.imm[25] top_tb.UUT.CPU.imm[24] top_tb.UUT.CPU.imm[23] top_tb.UUT.CPU.imm[22] top_tb.UUT.CPU.imm[21] top_tb.UUT.CPU.imm[20] top_tb.UUT.CPU.imm[19] top_tb.UUT.CPU.imm[18] top_tb.UUT.CPU.imm[17] top_tb.UUT.CPU.imm[16] top_tb.UUT.CPU.imm[15] top_tb.UUT.CPU.imm[14] top_tb.UUT.CPU.imm[13] top_tb.UUT.CPU.imm[12] top_tb.UUT.CPU.imm[11] top_tb.UUT.CPU.imm[10] top_tb.UUT.CPU.imm[9] top_tb.UUT.CPU.imm[8] top_tb.UUT.CPU.imm[7] top_tb.UUT.CPU.imm[6] top_tb.UUT.CPU.imm[5] top_tb.UUT.CPU.imm[4] top_tb.UUT.CPU.imm[3] top_tb.UUT.CPU.imm[2] top_tb.UUT.CPU.imm[1] top_tb.UUT.CPU.imm[0]
+#{top_tb.UUT.CPU.rd_val[31:0]} top_tb.UUT.CPU.rd_val[31] top_tb.UUT.CPU.rd_val[30] top_tb.UUT.CPU.rd_val[29] top_tb.UUT.CPU.rd_val[28] top_tb.UUT.CPU.rd_val[27] top_tb.UUT.CPU.rd_val[26] top_tb.UUT.CPU.rd_val[25] top_tb.UUT.CPU.rd_val[24] top_tb.UUT.CPU.rd_val[23] top_tb.UUT.CPU.rd_val[22] top_tb.UUT.CPU.rd_val[21] top_tb.UUT.CPU.rd_val[20] top_tb.UUT.CPU.rd_val[19] top_tb.UUT.CPU.rd_val[18] top_tb.UUT.CPU.rd_val[17] top_tb.UUT.CPU.rd_val[16] top_tb.UUT.CPU.rd_val[15] top_tb.UUT.CPU.rd_val[14] top_tb.UUT.CPU.rd_val[13] top_tb.UUT.CPU.rd_val[12] top_tb.UUT.CPU.rd_val[11] top_tb.UUT.CPU.rd_val[10] top_tb.UUT.CPU.rd_val[9] top_tb.UUT.CPU.rd_val[8] top_tb.UUT.CPU.rd_val[7] top_tb.UUT.CPU.rd_val[6] top_tb.UUT.CPU.rd_val[5] top_tb.UUT.CPU.rd_val[4] top_tb.UUT.CPU.rd_val[3] top_tb.UUT.CPU.rd_val[2] top_tb.UUT.CPU.rd_val[1] top_tb.UUT.CPU.rd_val[0]
+@28
+top_tb.UUT.CPU.wr_rd
+@22
+#{top_tb.UUT.CPU.mem_addr[31:0]} top_tb.UUT.CPU.mem_addr[31] top_tb.UUT.CPU.mem_addr[30] top_tb.UUT.CPU.mem_addr[29] top_tb.UUT.CPU.mem_addr[28] top_tb.UUT.CPU.mem_addr[27] top_tb.UUT.CPU.mem_addr[26] top_tb.UUT.CPU.mem_addr[25] top_tb.UUT.CPU.mem_addr[24] top_tb.UUT.CPU.mem_addr[23] top_tb.UUT.CPU.mem_addr[22] top_tb.UUT.CPU.mem_addr[21] top_tb.UUT.CPU.mem_addr[20] top_tb.UUT.CPU.mem_addr[19] top_tb.UUT.CPU.mem_addr[18] top_tb.UUT.CPU.mem_addr[17] top_tb.UUT.CPU.mem_addr[16] top_tb.UUT.CPU.mem_addr[15] top_tb.UUT.CPU.mem_addr[14] top_tb.UUT.CPU.mem_addr[13] top_tb.UUT.CPU.mem_addr[12] top_tb.UUT.CPU.mem_addr[11] top_tb.UUT.CPU.mem_addr[10] top_tb.UUT.CPU.mem_addr[9] top_tb.UUT.CPU.mem_addr[8] top_tb.UUT.CPU.mem_addr[7] top_tb.UUT.CPU.mem_addr[6] top_tb.UUT.CPU.mem_addr[5] top_tb.UUT.CPU.mem_addr[4] top_tb.UUT.CPU.mem_addr[3] top_tb.UUT.CPU.mem_addr[2] top_tb.UUT.CPU.mem_addr[1] top_tb.UUT.CPU.mem_addr[0]
+@28
+#{top_tb.UUT.CPU.mem_mode[2:0]} top_tb.UUT.CPU.mem_mode[2] top_tb.UUT.CPU.mem_mode[1] top_tb.UUT.CPU.mem_mode[0]
+@22
+#{top_tb.UUT.CPU.mem_out[31:0]} top_tb.UUT.CPU.mem_out[31] top_tb.UUT.CPU.mem_out[30] top_tb.UUT.CPU.mem_out[29] top_tb.UUT.CPU.mem_out[28] top_tb.UUT.CPU.mem_out[27] top_tb.UUT.CPU.mem_out[26] top_tb.UUT.CPU.mem_out[25] top_tb.UUT.CPU.mem_out[24] top_tb.UUT.CPU.mem_out[23] top_tb.UUT.CPU.mem_out[22] top_tb.UUT.CPU.mem_out[21] top_tb.UUT.CPU.mem_out[20] top_tb.UUT.CPU.mem_out[19] top_tb.UUT.CPU.mem_out[18] top_tb.UUT.CPU.mem_out[17] top_tb.UUT.CPU.mem_out[16] top_tb.UUT.CPU.mem_out[15] top_tb.UUT.CPU.mem_out[14] top_tb.UUT.CPU.mem_out[13] top_tb.UUT.CPU.mem_out[12] top_tb.UUT.CPU.mem_out[11] top_tb.UUT.CPU.mem_out[10] top_tb.UUT.CPU.mem_out[9] top_tb.UUT.CPU.mem_out[8] top_tb.UUT.CPU.mem_out[7] top_tb.UUT.CPU.mem_out[6] top_tb.UUT.CPU.mem_out[5] top_tb.UUT.CPU.mem_out[4] top_tb.UUT.CPU.mem_out[3] top_tb.UUT.CPU.mem_out[2] top_tb.UUT.CPU.mem_out[1] top_tb.UUT.CPU.mem_out[0]
+@28
+top_tb.UUT.CPU.wr_mem
+@23
+#{top_tb.UUT.pc_next[31:0]} top_tb.UUT.pc_next[31] top_tb.UUT.pc_next[30] top_tb.UUT.pc_next[29] top_tb.UUT.pc_next[28] top_tb.UUT.pc_next[27] top_tb.UUT.pc_next[26] top_tb.UUT.pc_next[25] top_tb.UUT.pc_next[24] top_tb.UUT.pc_next[23] top_tb.UUT.pc_next[22] top_tb.UUT.pc_next[21] top_tb.UUT.pc_next[20] top_tb.UUT.pc_next[19] top_tb.UUT.pc_next[18] top_tb.UUT.pc_next[17] top_tb.UUT.pc_next[16] top_tb.UUT.pc_next[15] top_tb.UUT.pc_next[14] top_tb.UUT.pc_next[13] top_tb.UUT.pc_next[12] top_tb.UUT.pc_next[11] top_tb.UUT.pc_next[10] top_tb.UUT.pc_next[9] top_tb.UUT.pc_next[8] top_tb.UUT.pc_next[7] top_tb.UUT.pc_next[6] top_tb.UUT.pc_next[5] top_tb.UUT.pc_next[4] top_tb.UUT.pc_next[3] top_tb.UUT.pc_next[2] top_tb.UUT.pc_next[1] top_tb.UUT.pc_next[0]
+[pattern_trace] 1
+[pattern_trace] 0

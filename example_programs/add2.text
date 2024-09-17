@@ -1,0 +1,7 @@
+Address     Code        Basic                        Line Source
+
+0x00400000  0x00400293  addi x5,x0,4                 3    	addi x5, x0, 4	# load 4 into x5
+0x00400004  0x00500313  addi x6,x0,5                 4    	addi x6, x0, 5	# load 5 into x6
+0x00400008  0x006283b3  add x7,x5,x6                 5    	add x7, x5, x6		# x7 = x5 + x6
+0x0040000c  0xfed38393  addi x7,x7,0xffffffed        6    	addi x7, x7, -19	# subtract 19 from t2
+0x00400010  0x00702423  sw x7,8(x0)                  7    	sw x7, 8(x0)	# store x7 into memory location 8

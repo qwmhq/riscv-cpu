@@ -1,0 +1,60 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity ALU is
+port(
+	x1, x2	: in std_logic_vector(31 downto 0);
+	func3		: in std_logic_vector(2 downto 0);
+	y			: out std_logic_vector(31 downto 0)
+);
+end ALU;
+
+architecture arch of ALU is
+	signal x1_signed,
+				x2_signed	: signed(31 downto 0);
+	signal x1_unsigned,
+				x2_unsigned : unsigned(31 downto 0);
+	signal shift_amount	: integer range 0 to 31;
+	signal lt, ltu			: boolean;
+	signal add_result,
+				sub_result,
+				sll_result,
+				slt_result,
+				sltu_result,
+				xor_result,
+				srl_result,
+				sra_result,
+				or_result,
+				and_result	: std_logic_vector(31 downto 0);
+begin
+	x1_signed		<= signed(x1);
+	x2_signed		<= signed(x2);
+	x1_unsigned		<= unsigned(x1);
+	x2_unsigned		<= unsigned(x2);
+	shift_amount	<= to_integer(unsigned(x2(4 downto 0)));
+	lt					<= x1_signed < x2_signed;
+	ltu				<= x1_unsigned < x2_unsigned;
+	
+	add_result	<= std_logic_vector(x1_signed + x2_signed);
+	sub_result	<= std_logic_vector(x1_signed - x2_signed);
+	sll_result	<= std_logic_vector(shift_left(x1_unsigned, shift_amount));
+	slt_result 	<= x"00000001" when lt = true else x"00000000";
+	sltu_result	<= x"00000001" when ltu = true else x"00000000";
+	xor_result	<= x1 xor x2;
+	srl_result	<= std_logic_vector(shift_right(x1_unsigned, shift_amount));
+	sra_result	<= x"00000000";
+	or_result	<= x1 or x2;
+	and_result	<= x1 and x2;
+	
+	with (func3) select
+		y <= add_result when "000",
+				sll_result when "001",
+				slt_result when "010",
+				sltu_result when "011",
+				xor_result when "100",
+				srl_result when "101",
+				or_result when "110",
+				and_result when "111",
+				x"XXXXXXXX" when others;
+end architecture;
