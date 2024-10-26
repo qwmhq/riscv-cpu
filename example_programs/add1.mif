@@ -1,0 +1,13 @@
+WIDTH=32;               -- 32-bit instructions
+DEPTH=16;               -- Adjust this to how many memory locations you want
+
+ADDRESS_RADIX=HEX;      -- Hexadecimal for addresses
+DATA_RADIX=HEX;         -- Hexadecimal for data
+
+CONTENT BEGIN
+    0x00000000 : 0xb7420600;  -- reversed bytes of 0x000642b7 (lui x5, 0x00000064)
+    0x00000001 : 0x9382c214;  -- reversed bytes of 0x14c28293 (addi x5,x5,0x0000014c)
+    0x00000002 : 0x37430600;  -- reversed bytes of 0x00064337 (lui x6, 0x00000064)
+    0x00000003 : 0x1303f30d;  -- reversed bytes of 0x0df30313 (addi x6,x6,0x000000df)
+    0x00000004 : 0xb3836200;  -- reversed bytes of 0x006283b3 (add x7,x5,x6)
+END;

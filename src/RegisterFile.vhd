@@ -6,15 +6,15 @@ entity RegisterFile is
 port(
 	rs1		: in	std_logic_vector( 4 downto 0);
 	rs2		: in	std_logic_vector( 4 downto 0);
---	rs3		: in	std_logic_vector( 4 downto 0);
+	rs3		: in	std_logic_vector( 4 downto 0);
 	data_in	: in	std_logic_vector(31 downto 0);
 	rd		: in	std_logic_vector( 4 downto 0);
 	wr_en	: in	std_logic;
 	clk		: in 	std_logic;
 	reset	: in	std_logic;
 	r1		: out	std_logic_vector(31 downto 0);
-	r2		: out	std_logic_vector(31 downto 0)
---	r3		: out	std_logic_vector(31 downto 0)
+	r2		: out	std_logic_vector(31 downto 0);
+	r3		: out	std_logic_vector(31 downto 0)
 );
 end RegisterFile;
 
@@ -24,17 +24,17 @@ architecture arch of RegisterFile is
 	signal mutable_registers	: reg_array(1 to 31);
 	signal rs1_idx				: integer range 0 to 31;
 	signal rs2_idx				: integer range 0 to 31;
---	signal rs3_idx				: integer range 0 to 31;
+	signal rs3_idx				: integer range 0 to 31;
 	signal rd_idx				: integer range 0 to 31;
 begin
 	rd_idx <= to_integer(unsigned(rd));
 	rs1_idx <= to_integer(unsigned(rs1));
 	rs2_idx <= to_integer(unsigned(rs2));
---	rs3_idx <= to_integer(unsigned(rs3));
+	rs3_idx <= to_integer(unsigned(rs3));
 	
 	process(clk, reset)
 	begin
-		if reset = '1' then
+		if reset = '0' then
 		-- reset all registers
 			mutable_registers <= (others => (others => '0'));
 		elsif falling_edge(clk) then
@@ -50,5 +50,5 @@ begin
 	
 	r1 <= registers(rs1_idx);
 	r2 <= registers(rs2_idx);
---	r3 <= registers(rs3_idx);
+	r3 <= registers(rs3_idx);
 end architecture;

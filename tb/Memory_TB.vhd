@@ -8,7 +8,6 @@ end entity;
 
 architecture arch of Memory_TB is
 	signal clock	: std_logic := '1';
-	signal reset	: std_logic;
 
 	signal addr_a		: std_logic_vector(ADDR_WIDTH-1 downto 0);
 	signal data_in_a	: std_logic_vector(DATA_WIDTH-1 downto 0);
@@ -21,6 +20,9 @@ architecture arch of Memory_TB is
 	signal wren_b		: std_logic;
 	signal mode_b		: std_logic_vector(2 downto 0);
 	signal data_out_b	: std_logic_vector(DATA_WIDTH-1 downto 0);
+
+	signal in_port_data	: std_logic_vector(DATA_WIDTH-1 downto 0);
+	signal out_port_data	: std_logic_vector(DATA_WIDTH-1 downto 0);
 begin
 	UUT : entity work.Memory
 	port map(
@@ -36,16 +38,14 @@ begin
 		data_in_b	=> data_in_b,
 		wren_b		=> wren_b,
 		mode_b		=> mode_b,
-		data_out_b	=> data_out_b
+		data_out_b	=> data_out_b,
+
+		in_port_data => in_port_data,
+		out_port_data => out_port_data
 	);
 
-	CLOCK_PROC : process
-	begin
-		loop
-			clock <= not clock;
-			wait for TB_CLK_PD/2;
-		end loop;
-	end process;
+	-- clock generation
+	clock <= not clock after tb_clk_pd/2;
 
 	STIMULUS : process
 	begin
@@ -54,10 +54,11 @@ begin
 		data_in_a	<= (others => '0');
 		mode_a		<= (others => '0');
 		wren_a		<= '0';
-		wait for TB_CLK_PD;
+		wait until rising_edge(clock);
 
 		-- test byte enabled writing
 		data_in_a <= x"12345678";
+		wait until rising_edge(clock);
 
 		for i in 0 to 3 loop
 			for j in 0 to 2 loop
@@ -93,6 +94,58 @@ begin
 			wait for TB_CLK_PD;
 		end loop;
 
+		-- test memory-mapped i/o
+		-- port a
+		in_port_data <= (others => '0');
+		wait until rising_edge(clock);
+
+		data_in_a <= x"DEADF00D";
+		addr_a <= "111" & x"F8";
+		wren_a <= '1';
+
+		mode_a <= "000";
+		wait for TB_CLK_PD * 2;
+
+		mode_a <= "001";
+		wait for TB_CLK_PD * 2;
+
+		mode_a <= "010";
+		wait for TB_CLK_PD * 2;
+
+		wren_a <= '0';
+		wait for TB_CLK_PD;
+
+		in_port_data <= x"69690420";
+		addr_a <= "111" & x"FC";
+		mode_a <= "010";
+		wait for TB_CLK_PD * 2;
+
+		-- port b
+		addr_b <= "111" & x"F8";
+		mode_b <= "000";
+		wait for TB_CLK_PD * 2;
+
+		mode_b <= "100";
+		wait for TB_CLK_PD * 2;
+
+		mode_b <= "001";
+		wait for TB_CLK_PD * 2;
+
+		mode_b <= "101";
+		wait for TB_CLK_PD * 2;
+
+		mode_b <= "010";
+		wait for TB_CLK_PD * 2;
+
+		addr_b <= "111" & x"FC";
+		mode_b <= "000";
+		wait for TB_CLK_PD * 2;
+
+		mode_b <= "001";
+		wait for TB_CLK_PD * 2;
+
+		mode_b <= "010";
+		wait for TB_CLK_PD * 2;
 	end process;
 
 end architecture;

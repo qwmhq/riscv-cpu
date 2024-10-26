@@ -1,0 +1,6 @@
+Address     Code        Basic                        Line Source
+
+0x00400000  0xfce00293  addi x5,x0,0xffffffce        4    	addi t0 , zero , -50	# t0 = -50
+0x00400004  0x00300313  addi x6,x0,3                 5    	addi t1 , zero , 3 		# t1 = 3
+0x00400008  0x0262c3b3  div x7,x5,x6                 6    	div t2 , t0 , t1		# quotient in t2
+0x0040000c  0x0262ee33  rem x28,x5,x6                7    	rem t3 , t0 , t1		# remainder in t3

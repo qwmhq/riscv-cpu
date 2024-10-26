@@ -1,197 +1,376 @@
 library ieee;
 use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
 use work.common_pkg.all;
 
 entity top is
 port(
-	clk		: in std_logic;
 	reset	: in std_logic;
+	clock	: in std_logic;
 
-	-- keypad ports
-	keypad1_row	: in std_logic_vector(3 downto 0);
-	keypad1_col	: out std_logic_vector(3 downto 0);
-
-	keypad2_row	: in std_logic_vector(3 downto 0);
-	keypad2_col	: out std_logic_vector(3 downto 0);
-	
-	-- lcd display ports
-	lcd_rs		: out std_logic;
+	-- hd44780 lcd
 	lcd_e		: out std_logic;
-	lcd_rw		: out std_logic;
-	lcd_data	: inout std_logic_vector(7 downto 0);
+	lcd_rs	: out std_logic;
+	lcd_dbus	: out std_logic_vector(3 downto 0);
+
+	led_on	: out std_logic;
 	
-	output_1	: out std_logic_vector(31 downto 0);
-	output_2	: out std_logic_vector(31 downto 0);
-	output_3	: out std_logic_vector(31 downto 0)
+	-- keypad
+	kpd1_col	: out std_logic_vector(3 downto 0);
+	kpd1_row	: in std_logic_vector(3 downto 0);
+	
+	kpd2_col	: out std_logic_vector(3 downto 0);
+	kpd2_row	: in std_logic_vector(3 downto 0);
+
+	-- seven segment display
+	disp_seg	: out std_logic_vector(6 downto 0);
+	disp_anode	: out std_logic_vector(7 downto 0);
+
+	-- signaltap sampling clock
+	pll_c1	: out std_logic;
+	
+	-- switch input
+	port0	: in std_logic_vector((DATA_WIDTH/2)-1 downto 0)
 );
-end entity;
+end top;
 
 architecture arch of top is
-	constant clockfreq_hz	: integer := 50000000;
-	signal inst	: std_logic_vector(INST_WIDTH-1 downto 0);
-	signal instmem_rd_addr
-			: std_logic_vector(INST_ADDR_WIDTH-1 downto 0);
+	constant clockfreqhz 	: integer := 50_000_000;
+	constant clockenfreqhz	: integer := 100;
+	constant maxclockcount	: integer := clockfreqhz / clockenfreqhz;
+	
+	signal resetn	: std_logic;
+		
+	-- internal signals
+	signal clock_count	: integer range 0 to maxclockcount;
+	signal clock_en		: std_logic;
+	signal clock_25		: std_logic;
 
-	-- keypad signals
-	signal keypad1_hexval	: std_logic_vector(3 downto 0);
-	signal keypad1_pressed	: std_logic;
+	-- lcd
+	signal lcd_val16		: std_logic_vector(15 downto 0);
+	signal lcd_val32_1	: std_logic_vector(31 downto 0);
+	signal lcd_val32_2	: std_logic_vector(31 downto 0);
+	signal lcd_chars	: character_string(0 to 31);
+	
+	-- keypad
+	signal kpd1_keyval	: std_logic_vector(3 downto 0);
+	signal kpd1_keyup		: std_logic;
 
-	signal keypad2_hexval	: std_logic_vector(3 downto 0);
-	signal keypad2_pressed	: std_logic;
+	signal kpd2_keyval	: std_logic_vector(3 downto 0);
+	signal kpd2_keyup		: std_logic;
 	
 	-- keypad buffer
-	signal kpd_buf_clear	: std_logic;
-	signal kpd_buffer		: std_logic_vector(31 downto 0);
-	signal kpd_buf_full		: std_logic;
+	signal buf_input	: std_logic_vector(3 downto 0);
+	signal buf_reg		: std_logic_vector(31 downto 0);
 
-	-- lcd signals
-	signal lcd_on	: std_logic;
-	signal lcd_blon	: std_logic;
-	signal lcd_addr_in	: std_logic_vector (14 downto 0);
-	signal lcd_buf_in	: std_logic_vector(31 downto 0);
-	signal lcd_regdata_in	: std_logic_vector(31 downto 0);
+	-- 
+	signal mem_addr_io	: std_logic_vector(ADDR_WIDTH-1 downto 0);
+	signal regsel			: std_logic_vector(4 downto 0);
+	signal regsel_val		: std_logic_vector(31 downto 0);
 
-	-- memory signals
-	signal mem_addr_a		: std_logic_vector(ADDR_WIDTH-1 downto 0);
-	signal mem_indata_a		: std_logic_vector(DATA_WIDTH-1 downto 0);
-	signal mem_outdata_a	: std_logic_vector(DATA_WIDTH-1 downto 0);
-	signal mem_wren_a		: std_logic;
+	type state_t is (idle, pre_mem_load, mem_load, mem_load_write, mem_view, execute_0, execute_1);
+	signal current_state	: state_t;
+
+	-- keypad2 constants
+	constant CLEAR_KEYVAL		: std_logic_vector(3 downto 0) := x"E";
+	constant RS_DEC_KEYVAL		: std_logic_vector(3 downto 0) := x"A";
+	constant RS_INC_KEYVAL		: std_logic_vector(3 downto 0) := x"B";
+	constant EXEC_KEYVAL		: std_logic_vector(3 downto 0) := x"F";
+	constant ADDR_DEC_KEYVAL	: std_logic_vector(3 downto 0) := x"6";
+	constant ADDR_INC_KEYVAL	: std_logic_vector(3 downto 0) := x"7";
+	constant MEMLD_KEYVAL		: std_logic_vector(3 downto 0) := x"2";
+	constant MEMVIEW_KEYVAL		: std_logic_vector(3 downto 0) := x"3";
+	constant ENTER_KEYVAL		: std_logic_vector(3 downto 0) := x"D";
+	constant BACK_KEYVAL		: std_logic_vector(3 downto 0) := x"9";
+	constant HALT_KEYVAL		: std_logic_vector(3 downto 0) := x"C";
+	
+	-- memory
 	signal mem_mode_a		: std_logic_vector(2 downto 0);
+	signal mem_wren_a		: std_logic;
+	signal mem_addr_a		: std_logic_vector(ADDR_WIDTH-1 downto 0);
+	signal mem_data_in_a	: std_logic_vector(DATA_WIDTH-1 downto 0);
+	signal mem_data_out_a	: std_logic_vector(DATA_WIDTH-1 downto 0);
 
-	signal mem_addr_b		: std_logic_vector(ADDR_WIDTH-1 downto 0);
-	signal mem_indata_b		: std_logic_vector(DATA_WIDTH-1 downto 0);
-	signal mem_outdata_b	: std_logic_vector(DATA_WIDTH-1 downto 0);
-	signal mem_wren_b		: std_logic;
 	signal mem_mode_b		: std_logic_vector(2 downto 0);
+	signal mem_wren_b		: std_logic;
+	signal mem_addr_b		: std_logic_vector(ADDR_WIDTH-1 downto 0);
+	signal mem_data_in_b	: std_logic_vector(DATA_WIDTH-1 downto 0);
+	signal mem_data_out_b	: std_logic_vector(DATA_WIDTH-1 downto 0);
+	
+	signal in_port_data	: std_logic_vector(DATA_WIDTH-1 downto 0);
 
-	signal inst_addr1		: std_logic_vector(ADDR_WIDTH-1 downto 0);
-	signal inst_addr2		: std_logic_vector(ADDR_WIDTH-1 downto 0);
+	-- cpu
+	signal cpu_clock_en		: std_logic;
+	signal cpu_mem_addr_out	: std_logic_vector(31 downto 0);
+	signal cpu_pc			: std_logic_vector(31 downto 0);
+	signal cpu_reset		: std_logic;
 
-	-- cpu signals
-	signal cpu_clk		: std_logic;
-	signal cpu_clk_en	: std_logic;
-	signal cpu_pc		: std_logic_vector(PC_WIDTH-1 downto 0);
-	signal cpu_memaddr	: std_logic_vector(XLEN-1 downto 0);
-	signal cpu_rs3		: std_logic_vector(4 downto 0);
-	signal cpu_r3		: std_logic_vector(DATA_WIDTH-1 downto 0);
-
-	-- state machine
-	type state_t is (inst_entry, exec);
-	signal state	: state_t;
-	signal exec_counter	: integer range 0 to clockfreq_hz * 5;
-
+	-- seven segment display
+	signal disp_data	: std_logic_vector(DATA_WIDTH-1 downto 0);
 begin
-	process(clk, reset)
-	begin
-		if reset = '1' then
-			state <= inst_entry;
-			exec_counter <= 0;
-			inst_addr1 <= (others => '0');
-		elsif rising_edge(clk) then
-			case state is
-				when inst_entry =>
-					cpu_clk_en <= '0';
-					mem_addr_a <= inst_addr1;
-				when exec =>
-					cpu_clk_en <= '1';
-					mem_addr_a <= inst_addr2;
-			end case;
-		end if;
-	end process;
 
-	inst <= mem_outdata_a;
-	cpu_clk <= clk and cpu_clk_en;	-- cpu clk enable
-	CPU : entity work.CPU
-	port map(
-		clk			=> cpu_clk,
-		reset		=> reset,
-		inst		=> inst,
-		mem_in		=> mem_outdata_b,
-		pc			=> cpu_pc,
-		mem_addr	=> cpu_memaddr,
-		mem_out		=> mem_indata_b,
-		mem_mode	=> mem_mode_b,
-		wr_mem		=> mem_wren_b
---		rs3			=> cpu_rs3,
---		r3			=> cpu_r3
+	resetn <= not reset;
+
+-- ----------------------------------------------------
+-- LCD CONTROLLER COMPONENT
+-- ----------------------------------------------------
+	lcd_chars <= generate_character_string(regsel, lcd_val16, lcd_val32_1, lcd_val32_2);
+	U1 : entity work.LCDDriver
+	port map
+	(
+		reset	=> reset,
+		clock	=> clock,
+
+		chars	=> lcd_chars,
+		
+		e		=> lcd_e,
+		rs		=> lcd_rs,
+		dbus	=> lcd_dbus
 	);
-
-	inst_addr2	<= cpu_pc(ADDR_WIDTH-1 downto 0);
-	mem_addr_b	<= cpu_memaddr(ADDR_WIDTH-1 downto 0);
-
-	MEM : entity work.Memory
+	
+-- ----------------------------------------------------
+-- KEYPAD SCANNERS
+-- ----------------------------------------------------
+	U2 : entity work.KeypadScanner
+	generic map(clockenfreqhz => clockenfreqhz)
 	port map(
-		clock		=> clk,
+		clock		=> clock,
+		clock_en	=> clock_en,
+		reset		=> reset,
+		row			=> kpd1_row,
+		col			=> kpd1_col,
+		keyval		=> kpd1_keyval,
+		keyup		=> kpd1_keyup
+	);
+	
+	U3 : entity work.KeypadScanner
+	generic map(clockenfreqhz => clockenfreqhz)
+	port map(
+		clock		=> clock,
+		clock_en	=> clock_en,
+		reset		=> reset,
+		row			=> kpd2_row,
+		col			=> kpd2_col,
+		keyval		=> kpd2_keyval,
+		keyup		=>	kpd2_keyup
+	);
+	
+	with kpd1_keyval select
+		buf_input <= x"1" when x"0",
+						x"2" when x"1",
+						x"3" when x"2",
+						x"A" when x"3",
+						x"4" when x"4",
+						x"5" when x"5",
+						x"6" when x"6",
+						x"B" when x"7",
+						x"7" when x"8",
+						x"8" when x"9",
+						x"9" when x"A",
+						x"C" when x"B",
+						x"E" when x"C",
+						x"0" when x"D",
+						x"F" when x"E",
+						x"D" when x"F",
+						(others => 'X') when others;
+
+-- -------------------------------------------------------
+-- memory
+-- -------------------------------------------------------
+	in_port_data(31 downto 16) <= port0;
+	in_port_data(15 downto 0) <= (others => '0');
+	U4 : entity work.Memory
+	port map(
+		clock	=> clock_25,
 
 		addr_a		=> mem_addr_a,
-		data_in_a	=> mem_indata_a,
+		data_in_a	=> mem_data_in_a,
 		wren_a		=> mem_wren_a,
 		mode_a		=> mem_mode_a,
-		data_out_a	=> mem_outdata_a,
+		data_out_a	=> mem_data_out_a,
 
 		addr_b		=> mem_addr_b,
-		data_in_b	=> mem_indata_b,
+		data_in_b	=> mem_data_in_b,
 		wren_b		=> mem_wren_b,
 		mode_b		=> mem_mode_b,
-		data_out_b	=> mem_outdata_b
+		data_out_b	=> mem_data_out_b,
+
+		in_port_data => in_port_data,
+		out_port_data => disp_data
 	);
 
-	KPD1 : entity work.KeypadDecoder
-	generic map(clockfreq_hz => clockfreq_hz)
+-- -------------------------------------------------------
+-- CPU
+-- -------------------------------------------------------
+	U5 : entity work.CPU
 	port map(
-		clk			=> clk,
-		reset		=> reset,
-		row			=> keypad1_row,
-		col			=> keypad1_col,
-		hex_value		=> keypad1_hexval,
-		keypad_pressed	=> keypad1_pressed
+		clk		=> clock_25,
+		clken	=> cpu_clock_en,
+		reset	=> cpu_reset,
+
+		inst	=> mem_data_out_a,
+		mem_in	=> mem_data_out_b,
+		regsel	=> regsel,
+
+		pc			=> cpu_pc,
+		mem_addr	=> cpu_mem_addr_out,
+		mem_out		=> mem_data_in_b,
+		mem_mode	=> mem_mode_b,
+		wr_mem		=> mem_wren_b,
+		regsel_val	=> regsel_val
+	);
+	mem_addr_b <= cpu_mem_addr_out(ADDR_WIDTH-1 downto 0);
+
+-- ----------------------------------------------------
+-- PLL
+-- ----------------------------------------------------
+	U6 : entity work.PLL
+	port map
+	(
+		areset	=> resetn,
+		inclk0	=> clock,
+		c1		=> pll_c1,
+		c0		=> clock_25
 	);
 
-	KPD2 : entity work.KeypadDecoder
-	generic map(clockfreq_hz => clockfreq_hz)
-	port map(
-		clk		=> clk,
+-- ----------------------------------------------------
+-- Seven Segment Controller
+-- ----------------------------------------------------
+	U7 : entity work.SevenSegmentController
+	port map
+	(
+		clk_50	=> clock,
 		reset	=> reset,
-		row		=> keypad2_row,
-		col		=> keypad2_col,
-		hex_value		=> keypad2_hexval,
-		keypad_pressed	=> keypad2_pressed
+		data_in => disp_data,
+		seg		=> disp_seg,
+		anode	=> disp_anode
 	);
 
-	kpd_buf_clear <= '1' when keypad2_pressed ='1' and keypad2_hexval = "0000";
-	KPD_BUF : entity work.KeypadBuffer
-	port map(
-		clk		=> clk,
-		reset	=> reset,
-		clear	=> kpd_buf_clear,
-		key_pressed	=> keypad1_pressed,
-		key_value	=> keypad1_hexval,
-		buf			=> kpd_buffer,
-		buf_full	=> kpd_buf_full
-	);
-	mem_indata_a <= kpd_buffer;
+-- ----------------------------------------------------
+-- slow clock process
+-- ----------------------------------------------------
+	P1: process(clock, reset)
+	begin
+		if (reset = '0') then
+			clock_count <= 0;
+			clock_en <= '0';
+		elsif rising_edge(clock) then
+			if clock_count <= maxclockcount - 1 then
+				clock_count <= clock_count + 1;
+				clock_en <= '0';
+			else
+				clock_count <= 0;
+				clock_en <= '1';
+			end if;
+		end if;
+	end process;
+	
+-- --------------------------------------------------------
+-- 
+-- --------------------------------------------------------	
+	
+	with current_state select
+		lcd_val16 <= (others => '0') when execute_0 | execute_1,
+							"00000" & mem_addr_io when others;
+	
+	lcd_val32_1 <= buf_reg;
+	lcd_val32_2 <= regsel_val;
+	
+	cpu_clock_en <= '1' when current_state = execute_1 else '0';
 
-	lcd_regdata_in <=  cpu_r3;
-	lcd_buf_in <= kpd_buffer;
-	lcd_addr_in <= inst_addr1;
-	LCD : entity work.LCDController
-	port map(
-		reset		=> reset,
-		clock_50	=> clk,
+	mem_mode_a <= "010";
+	mem_data_in_a <= buf_reg;
+	with current_state select
+		mem_addr_a <= cpu_pc(ADDR_WIDTH-1 downto 0) when execute_0 | execute_1,
+							mem_addr_io when others;						
+	
+-- --------------------------------------------------------	
+-- state machine processs
+-- --------------------------------------------------------
+	P2 : process(clock, reset)
+	begin
+		if (reset = '0') then
+			current_state <= idle;
+			mem_addr_io <= (others => '0');
+			regsel <= (others => '0');
+			buf_reg <= (others => '0');
+			cpu_reset <= '1';
+		elsif rising_edge(clock) then
+			if clock_en = '1' then
+				-- defaults
+				mem_wren_a <= '0';
 
-		addr_in		=> lcd_addr_in,
-		buf_in		=> lcd_buf_in,
-		regdata_in	=> lcd_regdata_in,
+				-- keypad2 presses that don't depend on current state
+				if kpd2_keyup = '1' then
+					-- register select increment and decrement
+					if kpd2_keyval = RS_INC_KEYVAL then
+						regsel <= std_logic_vector(unsigned(regsel) + 1);
+					elsif kpd2_keyval = RS_DEC_KEYVAL then
+						regsel <= std_logic_vector(unsigned(regsel) - 1);
+					elsif kpd2_keyval = BACK_KEYVAL then
+						current_state <= idle;
+					end if;
+				end if;
 
-		lcd_rs		=> lcd_rs,
-		lcd_e		=> lcd_e,
-		lcd_rw		=> lcd_rw,
-		lcd_on		=> lcd_on,
-		lcd_blon	=> lcd_blon,
-		data_bus	=> lcd_data
-	);
-
-	output_1 <= cpu_memaddr;
-	output_2 <= mem_outdata_a;
-	output_3 <= mem_indata_b;
+				case current_state is
+					when idle =>
+						mem_addr_io <= (others => '0');
+						buf_reg <= (others => '0');
+						if kpd2_keyup = '1' then
+							if kpd2_keyval = MEMLD_KEYVAL then
+								current_state <= pre_mem_load;
+							elsif kpd2_keyval = MEMVIEW_KEYVAL then
+								current_state <= mem_view;
+							end if;
+						end if;
+					when pre_mem_load =>
+						buf_reg <= mem_data_out_a;
+						current_state <= mem_load;
+					when mem_load =>
+						if kpd1_keyup = '1' then
+							buf_reg <= buf_reg(buf_reg'high - 4 downto buf_reg'low) & buf_input;
+						elsif kpd2_keyup = '1' then
+							if kpd2_keyval = CLEAR_KEYVAL then 
+								buf_reg <= (others => '0');
+							elsif kpd2_keyval = ADDR_DEC_KEYVAL then
+								mem_addr_io <= std_logic_vector(unsigned(mem_addr_io) - 4);
+								current_state <= pre_mem_load;
+							elsif kpd2_keyval = ADDR_INC_KEYVAL then
+								mem_addr_io <= std_logic_vector(unsigned(mem_addr_io) + 4);
+								current_state <= pre_mem_load;
+							elsif kpd2_keyval = ENTER_KEYVAL then
+								current_state <= mem_load_write;
+								mem_wren_a <= '1';
+							elsif kpd2_keyval = EXEC_KEYVAL then
+								current_state <= execute_0;
+								cpu_reset <= '0';
+							end if;
+						end if;
+					when mem_load_write =>
+						mem_addr_io <= std_logic_vector(unsigned(mem_addr_io) + 4);
+						current_state <= pre_mem_load;
+					when mem_view =>
+						buf_reg <= mem_data_out_a;
+						if kpd2_keyup = '1' then
+							if kpd2_keyval = ADDR_DEC_KEYVAL then
+								mem_addr_io <= std_logic_vector(unsigned(mem_addr_io) - 4);
+							elsif kpd2_keyval = ADDR_INC_KEYVAL then
+								mem_addr_io <= std_logic_vector(unsigned(mem_addr_io) + 4);
+							end if;
+						end if;
+					when execute_0 =>
+						cpu_reset <= '1';
+						current_state <= execute_1;
+					when execute_1 =>
+						if kpd2_keyup = '1' then
+							if kpd2_keyval = HALT_KEYVAL then
+								current_state <= idle;
+							end if;
+						end if;
+				end case;
+			end if;
+		end if;
+	end process;
+			
+	led_on <= not clock_en;
 end architecture;

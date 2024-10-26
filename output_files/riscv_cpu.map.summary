@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Fri Oct 25 22:41:27 2024
+Quartus Prime Version : 21.1.0 Build 842 10/21/2021 SJ Lite Edition
+Revision Name : riscv_cpu
+Top-level Entity Name : top
+Family : Cyclone IV E
+Total logic elements : 6,834
+    Total combinational functions : 5,363
+    Dedicated logic registers : 2,067
+Total registers : 2067
+Total pins : 57
+Total virtual pins : 0
+Total memory bits : 16,600
+Embedded Multiplier 9-bit elements : 8
+Total PLLs : 1

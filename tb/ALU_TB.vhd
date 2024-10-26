@@ -1,12 +1,14 @@
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
+use work.common_pkg.all;
 
 entity ALU_TB is
 end ALU_TB;
 
 architecture arch of ALU_TB is
-	signal x, y	: std_logic_vector(31 downto 0);
+	signal clock	: std_logic := '1';
+	signal x, y		: std_logic_vector(31 downto 0);
 	signal func3	: std_logic_vector(2 downto 0);
 	signal func7	: std_logic_vector(6 downto 0);
 	signal z		: std_logic_vector(31 downto 0);
@@ -19,11 +21,11 @@ architecture arch of ALU_TB is
 		funct7 <= "0000000";
 		for i in 0 to 7 loop
 			funct3	<= std_logic_vector(to_unsigned(i, 3));
-			wait for 100 ns;
+			wait for TB_CLK_PD;
 
 			if i = 0 or i = 5 then
 				funct7(5) <= '1';
-				wait for 100 ns;
+				wait for TB_CLK_PD;
 				funct7(5) <= '0';
 			end if;
 		end loop;
@@ -32,13 +34,17 @@ architecture arch of ALU_TB is
 
 		for i in 0 to 7 loop
 			funct3	<= std_logic_vector(to_unsigned(i, 3));
-			wait for 100 ns;
+			wait for TB_CLK_PD * 10;
 		end loop;
 	end procedure test;
 
 begin
+
+	clock <= not clock after TB_CLK_PD/2;
+
 	UUT : entity work.ALU
 	port map(
+		clock	=> clock,
 		x		=> x,
 		y		=> y,
 		func3	=> func3,
@@ -48,6 +54,8 @@ begin
 
 	STIMULUS : process
 	begin
+		wait until rising_edge(clock);
+
 		x	<= std_logic_vector(to_signed(-4, 32));
 		y	<= std_logic_vector(to_signed(-5, 32));
 		test(func3, func7);

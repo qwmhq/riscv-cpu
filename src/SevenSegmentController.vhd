@@ -4,19 +4,21 @@ use ieee.numeric_std.all;
 
 entity SevenSegmentController is
 port (
-	clk		: in std_logic;
+	clk_50	: in std_logic;
 	reset	: in std_logic;
-	data_in	: in std_logic_vector(15 downto 0);
+	data_in	: in std_logic_vector(31 downto 0);
 	seg		: out std_logic_vector(6 downto 0);
-	anode	: out std_logic_vector(3 downto 0)
+	anode	: out std_logic_vector(7 downto 0)
 );
 end SevenSegmentController ;
 
 architecture arch of SevenSegmentController is
 
-	signal clk_div		: std_logic := '0'; -- clock divider signal
-	signal digit_select	: unsigned(1 downto 0);
-	signal counter		: integer := 0; -- counter for clock division
+	signal clken		: std_logic := '0';
+	signal digit_select	: unsigned(2 downto 0);
+
+	constant clk_div_factor	: integer := 50000;
+	signal counter		: integer range 0 to clk_div_factor-1:= 0;
 
 	-- 7-segment encoding lookup table (abcdefg)
 	function hex_to_7seg(hex : std_logic_vector(3 downto 0)) return std_logic_vector is
@@ -43,31 +45,32 @@ architecture arch of SevenSegmentController is
 	end function;
 
 begin
-
-	/*
-    -- clock divider (for multiplexing speed control)
-    process(clk)
+    -- clock enable signal generation
+    process(clk_50, reset)
     begin
-        if rising_edge(clk) then
-            if counter = 50000 then -- adjust for desired multiplexing speed
+	if reset = '0' then
+	    counter <= 0;
+	    clken <= '0';
+        elsif rising_edge(clk_50) then
+            if counter = clk_div_factor-1 then
                 counter <= 0;
-                clk_div <= not clk_div;
+                clken <= '1';
             else
                 counter <= counter + 1;
+		clken <= '0';
             end if;
         end if;
     end process;
-	*/
-
-	clk_div <= clk;
 
     -- digit multiplexing control
-    process(clk_div, reset)
+    process(clk_50, reset)
     begin
-        if reset = '1' then
-            digit_select <= "00";
-        elsif rising_edge(clk_div) then
-            digit_select <= digit_select + 1;
+        if reset = '0' then
+            digit_select <= "000";
+        elsif rising_edge(clk_50) then
+	    if clken = '1' then
+		digit_select <= digit_select + 1;
+	    end if;
         end if;
     end process;
 
@@ -75,20 +78,32 @@ begin
     process(digit_select, data_in)
     begin
         case digit_select is
-            when "00" =>
-                anode <= "1110";
+            when "000" =>
+                anode <= "11111110";
                 seg <= hex_to_7seg(data_in(3 downto 0));
-            when "01" =>
-                anode <= "1101";
+            when "001" =>
+                anode <= "11111101";
                 seg <= hex_to_7seg(data_in(7 downto 4));
-            when "10" =>
-                anode <= "1011";
+            when "010" =>
+                anode <= "11111011";
                 seg <= hex_to_7seg(data_in(11 downto 8));
-            when "11" =>
-                anode <= "0111";
+            when "011" =>
+                anode <= "11110111";
                 seg <= hex_to_7seg(data_in(15 downto 12));
+            when "100" =>
+                anode <= "11101111";
+                seg <= hex_to_7seg(data_in(19 downto 16));
+            when "101" =>
+                anode <= "11011111";
+                seg <= hex_to_7seg(data_in(23 downto 20));
+            when "110" =>
+                anode <= "10111111";
+                seg <= hex_to_7seg(data_in(27 downto 24));
+            when "111" =>
+                anode <= "01111111";
+                seg <= hex_to_7seg(data_in(31 downto 28));
             when others =>
-                anode <= "1111";
+                anode <= "11111111";
                 seg <= "0000000";
         end case;
     end process;

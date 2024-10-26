@@ -1,0 +1,9 @@
+standard = "2008"
+
+[libraries]
+worklib.files = [
+	"src/*.vhd",
+	"tb/*.vhd",
+]
+
+#unnecessary_work_library = false

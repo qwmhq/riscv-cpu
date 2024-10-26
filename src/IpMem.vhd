@@ -43,8 +43,8 @@ USE altera_mf.altera_mf_components.all;
 ENTITY IpMem IS
 	PORT
 	(
-		address_a		: IN STD_LOGIC_VECTOR (12 DOWNTO 0);
-		address_b		: IN STD_LOGIC_VECTOR (12 DOWNTO 0);
+		address_a		: IN STD_LOGIC_VECTOR (8 DOWNTO 0);
+		address_b		: IN STD_LOGIC_VECTOR (8 DOWNTO 0);
 		byteena_a		: IN STD_LOGIC_VECTOR (3 DOWNTO 0) :=  (OTHERS => '1');
 		byteena_b		: IN STD_LOGIC_VECTOR (3 DOWNTO 0) :=  (OTHERS => '1');
 		clock_a		: IN STD_LOGIC  := '1';
@@ -78,10 +78,11 @@ BEGIN
 		clock_enable_output_a => "BYPASS",
 		clock_enable_output_b => "BYPASS",
 		indata_reg_b => "CLOCK1",
+		init_file => "ipmem.mif",
 		intended_device_family => "Cyclone IV E",
 		lpm_type => "altsyncram",
-		numwords_a => 8192,
-		numwords_b => 8192,
+		numwords_a => 512,
+		numwords_b => 512,
 		operation_mode => "BIDIR_DUAL_PORT",
 		outdata_aclr_a => "NONE",
 		outdata_aclr_b => "NONE",
@@ -90,8 +91,8 @@ BEGIN
 		power_up_uninitialized => "FALSE",
 		read_during_write_mode_port_a => "NEW_DATA_WITH_NBE_READ",
 		read_during_write_mode_port_b => "NEW_DATA_WITH_NBE_READ",
-		widthad_a => 13,
-		widthad_b => 13,
+		widthad_a => 9,
+		widthad_b => 9,
 		width_a => 32,
 		width_b => 32,
 		width_byteena_a => 4,
@@ -127,7 +128,7 @@ END SYN;
 -- Retrieval info: PRIVATE: BYTE_ENABLE_A NUMERIC "1"
 -- Retrieval info: PRIVATE: BYTE_ENABLE_B NUMERIC "1"
 -- Retrieval info: PRIVATE: BYTE_SIZE NUMERIC "8"
--- Retrieval info: PRIVATE: BlankMemory NUMERIC "1"
+-- Retrieval info: PRIVATE: BlankMemory NUMERIC "0"
 -- Retrieval info: PRIVATE: CLOCK_ENABLE_INPUT_A NUMERIC "0"
 -- Retrieval info: PRIVATE: CLOCK_ENABLE_INPUT_B NUMERIC "0"
 -- Retrieval info: PRIVATE: CLOCK_ENABLE_OUTPUT_A NUMERIC "0"
@@ -150,9 +151,9 @@ END SYN;
 -- Retrieval info: PRIVATE: JTAG_ENABLED NUMERIC "0"
 -- Retrieval info: PRIVATE: JTAG_ID STRING "NONE"
 -- Retrieval info: PRIVATE: MAXIMUM_DEPTH NUMERIC "0"
--- Retrieval info: PRIVATE: MEMSIZE NUMERIC "262144"
+-- Retrieval info: PRIVATE: MEMSIZE NUMERIC "16384"
 -- Retrieval info: PRIVATE: MEM_IN_BITS NUMERIC "0"
--- Retrieval info: PRIVATE: MIFfilename STRING ""
+-- Retrieval info: PRIVATE: MIFfilename STRING "ipmem.mif"
 -- Retrieval info: PRIVATE: OPERATION_MODE NUMERIC "3"
 -- Retrieval info: PRIVATE: OUTDATA_ACLR_B NUMERIC "0"
 -- Retrieval info: PRIVATE: OUTDATA_REG_B NUMERIC "0"
@@ -188,10 +189,11 @@ END SYN;
 -- Retrieval info: CONSTANT: CLOCK_ENABLE_OUTPUT_A STRING "BYPASS"
 -- Retrieval info: CONSTANT: CLOCK_ENABLE_OUTPUT_B STRING "BYPASS"
 -- Retrieval info: CONSTANT: INDATA_REG_B STRING "CLOCK1"
+-- Retrieval info: CONSTANT: INIT_FILE STRING "ipmem.mif"
 -- Retrieval info: CONSTANT: INTENDED_DEVICE_FAMILY STRING "Cyclone IV E"
 -- Retrieval info: CONSTANT: LPM_TYPE STRING "altsyncram"
--- Retrieval info: CONSTANT: NUMWORDS_A NUMERIC "8192"
--- Retrieval info: CONSTANT: NUMWORDS_B NUMERIC "8192"
+-- Retrieval info: CONSTANT: NUMWORDS_A NUMERIC "512"
+-- Retrieval info: CONSTANT: NUMWORDS_B NUMERIC "512"
 -- Retrieval info: CONSTANT: OPERATION_MODE STRING "BIDIR_DUAL_PORT"
 -- Retrieval info: CONSTANT: OUTDATA_ACLR_A STRING "NONE"
 -- Retrieval info: CONSTANT: OUTDATA_ACLR_B STRING "NONE"
@@ -200,15 +202,15 @@ END SYN;
 -- Retrieval info: CONSTANT: POWER_UP_UNINITIALIZED STRING "FALSE"
 -- Retrieval info: CONSTANT: READ_DURING_WRITE_MODE_PORT_A STRING "NEW_DATA_WITH_NBE_READ"
 -- Retrieval info: CONSTANT: READ_DURING_WRITE_MODE_PORT_B STRING "NEW_DATA_WITH_NBE_READ"
--- Retrieval info: CONSTANT: WIDTHAD_A NUMERIC "13"
--- Retrieval info: CONSTANT: WIDTHAD_B NUMERIC "13"
+-- Retrieval info: CONSTANT: WIDTHAD_A NUMERIC "9"
+-- Retrieval info: CONSTANT: WIDTHAD_B NUMERIC "9"
 -- Retrieval info: CONSTANT: WIDTH_A NUMERIC "32"
 -- Retrieval info: CONSTANT: WIDTH_B NUMERIC "32"
 -- Retrieval info: CONSTANT: WIDTH_BYTEENA_A NUMERIC "4"
 -- Retrieval info: CONSTANT: WIDTH_BYTEENA_B NUMERIC "4"
 -- Retrieval info: CONSTANT: WRCONTROL_WRADDRESS_REG_B STRING "CLOCK1"
--- Retrieval info: USED_PORT: address_a 0 0 13 0 INPUT NODEFVAL "address_a[12..0]"
--- Retrieval info: USED_PORT: address_b 0 0 13 0 INPUT NODEFVAL "address_b[12..0]"
+-- Retrieval info: USED_PORT: address_a 0 0 9 0 INPUT NODEFVAL "address_a[8..0]"
+-- Retrieval info: USED_PORT: address_b 0 0 9 0 INPUT NODEFVAL "address_b[8..0]"
 -- Retrieval info: USED_PORT: byteena_a 0 0 4 0 INPUT VCC "byteena_a[3..0]"
 -- Retrieval info: USED_PORT: byteena_b 0 0 4 0 INPUT VCC "byteena_b[3..0]"
 -- Retrieval info: USED_PORT: clock_a 0 0 0 0 INPUT VCC "clock_a"
@@ -219,8 +221,8 @@ END SYN;
 -- Retrieval info: USED_PORT: q_b 0 0 32 0 OUTPUT NODEFVAL "q_b[31..0]"
 -- Retrieval info: USED_PORT: wren_a 0 0 0 0 INPUT GND "wren_a"
 -- Retrieval info: USED_PORT: wren_b 0 0 0 0 INPUT GND "wren_b"
--- Retrieval info: CONNECT: @address_a 0 0 13 0 address_a 0 0 13 0
--- Retrieval info: CONNECT: @address_b 0 0 13 0 address_b 0 0 13 0
+-- Retrieval info: CONNECT: @address_a 0 0 9 0 address_a 0 0 9 0
+-- Retrieval info: CONNECT: @address_b 0 0 9 0 address_b 0 0 9 0
 -- Retrieval info: CONNECT: @byteena_a 0 0 4 0 byteena_a 0 0 4 0
 -- Retrieval info: CONNECT: @byteena_b 0 0 4 0 byteena_b 0 0 4 0
 -- Retrieval info: CONNECT: @clock0 0 0 0 0 clock_a 0 0 0 0

@@ -1,0 +1,8 @@
+Address     Code        Basic                        Line Source
+
+0x00400000  0x00600593  addi x11,x0,6                4    	addi a1, zero, 6	# a1 = 6
+0x00400004  0x00100513  addi x10,x0,1                5    	addi a0, zero, 1	# prod = 1
+0x00400008  0x00100293  addi x5,x0,1                 6    	addi t0, zero, 1	# index = 1
+0x0040000c  0x02550533  mul x10,x10,x5               9    	mul a0, a0, t0		# prod = prod * index
+0x00400010  0x00128293  addi x5,x5,1                 10   	addi t0, t0, 1		# index++
+0x00400014  0xfe55dce3  bge x11,x5,0xfffffff8        11   	bge	a1, t0, .loop	# loop condition

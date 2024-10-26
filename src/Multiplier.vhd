@@ -43,6 +43,7 @@ USE lpm.all;
 ENTITY Multiplier IS
 	PORT
 	(
+		clock		: IN STD_LOGIC ;
 		dataa		: IN STD_LOGIC_VECTOR (32 DOWNTO 0);
 		datab		: IN STD_LOGIC_VECTOR (32 DOWNTO 0);
 		result		: OUT STD_LOGIC_VECTOR (65 DOWNTO 0)
@@ -59,6 +60,7 @@ ARCHITECTURE SYN OF multiplier IS
 	COMPONENT lpm_mult
 	GENERIC (
 		lpm_hint		: STRING;
+		lpm_pipeline		: NATURAL;
 		lpm_representation		: STRING;
 		lpm_type		: STRING;
 		lpm_widtha		: NATURAL;
@@ -66,6 +68,7 @@ ARCHITECTURE SYN OF multiplier IS
 		lpm_widthp		: NATURAL
 	);
 	PORT (
+			clock	: IN STD_LOGIC ;
 			dataa	: IN STD_LOGIC_VECTOR (32 DOWNTO 0);
 			datab	: IN STD_LOGIC_VECTOR (32 DOWNTO 0);
 			result	: OUT STD_LOGIC_VECTOR (65 DOWNTO 0)
@@ -77,7 +80,8 @@ BEGIN
 
 	lpm_mult_component : lpm_mult
 	GENERIC MAP (
-		lpm_hint => "DEDICATED_MULTIPLIER_CIRCUITRY=YES,MAXIMIZE_SPEED=5",
+		lpm_hint => "DEDICATED_MULTIPLIER_CIRCUITRY=YES,MAXIMIZE_SPEED=9",
+		lpm_pipeline => 6,
 		lpm_representation => "SIGNED",
 		lpm_type => "LPM_MULT",
 		lpm_widtha => 33,
@@ -85,6 +89,7 @@ BEGIN
 		lpm_widthp => 66
 	)
 	PORT MAP (
+		clock => clock,
 		dataa => dataa,
 		datab => datab,
 		result => sub_wire0
@@ -101,8 +106,8 @@ END SYN;
 -- Retrieval info: PRIVATE: B_isConstant NUMERIC "0"
 -- Retrieval info: PRIVATE: ConstantB NUMERIC "0"
 -- Retrieval info: PRIVATE: INTENDED_DEVICE_FAMILY STRING "Cyclone IV E"
--- Retrieval info: PRIVATE: LPM_PIPELINE NUMERIC "0"
--- Retrieval info: PRIVATE: Latency NUMERIC "0"
+-- Retrieval info: PRIVATE: LPM_PIPELINE NUMERIC "6"
+-- Retrieval info: PRIVATE: Latency NUMERIC "1"
 -- Retrieval info: PRIVATE: SYNTH_WRAPPER_GEN_POSTFIX STRING "0"
 -- Retrieval info: PRIVATE: SignedMult NUMERIC "1"
 -- Retrieval info: PRIVATE: USE_MULT NUMERIC "1"
@@ -113,17 +118,20 @@ END SYN;
 -- Retrieval info: PRIVATE: aclr NUMERIC "0"
 -- Retrieval info: PRIVATE: clken NUMERIC "0"
 -- Retrieval info: PRIVATE: new_diagram STRING "1"
--- Retrieval info: PRIVATE: optimize NUMERIC "0"
+-- Retrieval info: PRIVATE: optimize NUMERIC "1"
 -- Retrieval info: LIBRARY: lpm lpm.lpm_components.all
--- Retrieval info: CONSTANT: LPM_HINT STRING "DEDICATED_MULTIPLIER_CIRCUITRY=YES,MAXIMIZE_SPEED=5"
+-- Retrieval info: CONSTANT: LPM_HINT STRING "DEDICATED_MULTIPLIER_CIRCUITRY=YES,MAXIMIZE_SPEED=9"
+-- Retrieval info: CONSTANT: LPM_PIPELINE NUMERIC "6"
 -- Retrieval info: CONSTANT: LPM_REPRESENTATION STRING "SIGNED"
 -- Retrieval info: CONSTANT: LPM_TYPE STRING "LPM_MULT"
 -- Retrieval info: CONSTANT: LPM_WIDTHA NUMERIC "33"
 -- Retrieval info: CONSTANT: LPM_WIDTHB NUMERIC "33"
 -- Retrieval info: CONSTANT: LPM_WIDTHP NUMERIC "66"
+-- Retrieval info: USED_PORT: clock 0 0 0 0 INPUT NODEFVAL "clock"
 -- Retrieval info: USED_PORT: dataa 0 0 33 0 INPUT NODEFVAL "dataa[32..0]"
 -- Retrieval info: USED_PORT: datab 0 0 33 0 INPUT NODEFVAL "datab[32..0]"
 -- Retrieval info: USED_PORT: result 0 0 66 0 OUTPUT NODEFVAL "result[65..0]"
+-- Retrieval info: CONNECT: @clock 0 0 0 0 clock 0 0 0 0
 -- Retrieval info: CONNECT: @dataa 0 0 33 0 dataa 0 0 33 0
 -- Retrieval info: CONNECT: @datab 0 0 33 0 datab 0 0 33 0
 -- Retrieval info: CONNECT: result 0 0 66 0 @result 0 0 66 0

@@ -43,6 +43,7 @@ USE lpm.all;
 ENTITY Divider IS
 	PORT
 	(
+		clock		: IN STD_LOGIC ;
 		denom		: IN STD_LOGIC_VECTOR (32 DOWNTO 0);
 		numer		: IN STD_LOGIC_VECTOR (32 DOWNTO 0);
 		quotient		: OUT STD_LOGIC_VECTOR (32 DOWNTO 0);
@@ -63,11 +64,13 @@ ARCHITECTURE SYN OF divider IS
 		lpm_drepresentation		: STRING;
 		lpm_hint		: STRING;
 		lpm_nrepresentation		: STRING;
+		lpm_pipeline		: NATURAL;
 		lpm_type		: STRING;
 		lpm_widthd		: NATURAL;
 		lpm_widthn		: NATURAL
 	);
 	PORT (
+			clock	: IN STD_LOGIC ;
 			denom	: IN STD_LOGIC_VECTOR (32 DOWNTO 0);
 			numer	: IN STD_LOGIC_VECTOR (32 DOWNTO 0);
 			quotient	: OUT STD_LOGIC_VECTOR (32 DOWNTO 0);
@@ -82,13 +85,15 @@ BEGIN
 	LPM_DIVIDE_component : LPM_DIVIDE
 	GENERIC MAP (
 		lpm_drepresentation => "SIGNED",
-		lpm_hint => "LPM_REMAINDERPOSITIVE=FALSE",
+		lpm_hint => "MAXIMIZE_SPEED=6,LPM_REMAINDERPOSITIVE=FALSE",
 		lpm_nrepresentation => "SIGNED",
+		lpm_pipeline => 10,
 		lpm_type => "LPM_DIVIDE",
 		lpm_widthd => 33,
 		lpm_widthn => 33
 	)
 	PORT MAP (
+		clock => clock,
 		denom => denom,
 		numer => numer,
 		quotient => sub_wire0,
@@ -104,22 +109,25 @@ END SYN;
 -- ============================================================
 -- Retrieval info: PRIVATE: INTENDED_DEVICE_FAMILY STRING "Cyclone IV E"
 -- Retrieval info: PRIVATE: PRIVATE_LPM_REMAINDERPOSITIVE STRING "FALSE"
--- Retrieval info: PRIVATE: PRIVATE_MAXIMIZE_SPEED NUMERIC "-1"
+-- Retrieval info: PRIVATE: PRIVATE_MAXIMIZE_SPEED NUMERIC "6"
 -- Retrieval info: PRIVATE: SYNTH_WRAPPER_GEN_POSTFIX STRING "0"
--- Retrieval info: PRIVATE: USING_PIPELINE NUMERIC "0"
+-- Retrieval info: PRIVATE: USING_PIPELINE NUMERIC "1"
 -- Retrieval info: PRIVATE: VERSION_NUMBER NUMERIC "2"
 -- Retrieval info: PRIVATE: new_diagram STRING "1"
 -- Retrieval info: LIBRARY: lpm lpm.lpm_components.all
 -- Retrieval info: CONSTANT: LPM_DREPRESENTATION STRING "SIGNED"
--- Retrieval info: CONSTANT: LPM_HINT STRING "LPM_REMAINDERPOSITIVE=FALSE"
+-- Retrieval info: CONSTANT: LPM_HINT STRING "MAXIMIZE_SPEED=6,LPM_REMAINDERPOSITIVE=FALSE"
 -- Retrieval info: CONSTANT: LPM_NREPRESENTATION STRING "SIGNED"
+-- Retrieval info: CONSTANT: LPM_PIPELINE NUMERIC "10"
 -- Retrieval info: CONSTANT: LPM_TYPE STRING "LPM_DIVIDE"
 -- Retrieval info: CONSTANT: LPM_WIDTHD NUMERIC "33"
 -- Retrieval info: CONSTANT: LPM_WIDTHN NUMERIC "33"
+-- Retrieval info: USED_PORT: clock 0 0 0 0 INPUT NODEFVAL "clock"
 -- Retrieval info: USED_PORT: denom 0 0 33 0 INPUT NODEFVAL "denom[32..0]"
 -- Retrieval info: USED_PORT: numer 0 0 33 0 INPUT NODEFVAL "numer[32..0]"
 -- Retrieval info: USED_PORT: quotient 0 0 33 0 OUTPUT NODEFVAL "quotient[32..0]"
 -- Retrieval info: USED_PORT: remain 0 0 33 0 OUTPUT NODEFVAL "remain[32..0]"
+-- Retrieval info: CONNECT: @clock 0 0 0 0 clock 0 0 0 0
 -- Retrieval info: CONNECT: @denom 0 0 33 0 denom 0 0 33 0
 -- Retrieval info: CONNECT: @numer 0 0 33 0 numer 0 0 33 0
 -- Retrieval info: CONNECT: quotient 0 0 33 0 @quotient 0 0 33 0

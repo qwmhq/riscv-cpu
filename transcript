@@ -1,0 +1,88 @@
+# //  Questa Intel Starter FPGA Edition-64
+# //  Version 2021.2 linux_x86_64 Apr 14 2021
+# //
+# //  Copyright 1991-2021 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Modified modelsim.ini
+vcom -reportprogress 300 -work work /home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/KeypadScanner.vhd
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 19:11:56 on Sep 30,2024
+# vcom -reportprogress 300 -work work /home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/KeypadScanner.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity KeypadScanner
+# -- Compiling architecture arch of KeypadScanner
+# End time: 19:11:56 on Sep 30,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 300 -work work /home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/KeypadScanner.vhd
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 19:12:03 on Sep 30,2024
+# vcom -reportprogress 300 -work work /home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/KeypadScanner.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity KeypadScanner
+# -- Compiling architecture arch of KeypadScanner
+# End time: 19:12:03 on Sep 30,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 300 -work work /home/quwam/programming-stuff/cpu-stuff/riscv-cpu/tb/KeypadScanner_TB.vhd
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 19:12:17 on Sep 30,2024
+# vcom -reportprogress 300 -work work /home/quwam/programming-stuff/cpu-stuff/riscv-cpu/tb/KeypadScanner_TB.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity KeypadScanner_TB
+# -- Compiling architecture arch of KeypadScanner_TB
+# -- Loading entity KeypadScanner
+# End time: 19:12:17 on Sep 30,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 300 -work work /home/quwam/programming-stuff/cpu-stuff/riscv-cpu/tb/KeypadScanner_TB.vhd
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 19:12:19 on Sep 30,2024
+# vcom -reportprogress 300 -work work /home/quwam/programming-stuff/cpu-stuff/riscv-cpu/tb/KeypadScanner_TB.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity KeypadScanner_TB
+# -- Compiling architecture arch of KeypadScanner_TB
+# -- Loading entity KeypadScanner
+# End time: 19:12:19 on Sep 30,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vsim work.keypadscanner_tb
+# vsim work.keypadscanner_tb 
+# Start time: 19:12:30 on Sep 30,2024
+# ** Note: (vsim-3812) Design is being optimized...
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.keypadscanner_tb(arch)#1
+add wave -position end  sim:/keypadscanner_tb/clock
+add wave -position end  sim:/keypadscanner_tb/reset
+add wave -position end  sim:/keypadscanner_tb/row
+add wave -position end  sim:/keypadscanner_tb/col
+add wave -position end  sim:/keypadscanner_tb/keyval
+add wave -position end  sim:/keypadscanner_tb/clockperiod
+run
+run -all
+restart
+# ** Note: (vsim-8009) Loading existing optimized design _opt1
+run
+run
+# End time: 19:14:17 on Sep 30,2024, Elapsed time: 0:01:47
+# Errors: 0, Warnings: 0

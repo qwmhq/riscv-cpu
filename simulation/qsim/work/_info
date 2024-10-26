@@ -1,0 +1,381 @@
+m255
+K4
+z2
+Z0 !s99 nomlopt
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+!s11e vcom 2021.2 2021.04, Apr 14 2021
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z1 d/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/simulation/qsim
+T_opt
+!s110 1721319336
+V6AMGRm=HTOb9klg@TOQ8?0
+04 25 18 work register_file_vhd_vec_tst register_file_arch 1
+=1-000ae431a4f1-66993fa6-c4dc8-20de1
+!s124 OEM10U2 
+o-quiet -auto_acc_if_foreign -work work -L cycloneive -L altera -L altera_mf -L 220model -L sgate -L altera_lnsim
+Z2 tCvgOpt 0
+n@_opt
+Z3 OL;O;2021.2;73
+R1
+T_opt1
+!s110 1721317670
+V7kRe=8@A9ZSQ>Hd[Uz;Zl3
+04 14 7 work en_vhd_vec_tst en_arch 1
+=1-000ae431a4f1-66993925-6d017-207fb
+Z4 !s124 OEM10U3 
+o-quiet -sdf -auto_acc_if_foreign -work work -L cycloneive -L altera -L altera_mf -L 220model -L sgate -L altera_lnsim -sdfmax en_vhd_vec_tst/i1=riscv_cpu_vhd.sdo -suppress 1948
+R2
+n@_opt1
+R3
+R1
+T_opt2
+Z5 !s110 1722380419
+VHJ:3KjY<f7^]ZmHd`C34^3
+04 24 17 work registerfile_vhd_vec_tst registerfile_arch 1
+=1-000ae431a4f1-66a97083-3b3a4-19ef4
+R4
+o-quiet -auto_acc_if_foreign -work work -L cycloneive -L altera -L altera_mf -L 220model -L sgate -L altera_lnsim +acc
+R2
+n@_opt2
+R3
+Een
+Z6 w1721317911
+Z7 DPx4 ieee 16 vital_primitives 0 22 G>kiXP8Q9dRClKfK1Zn7j1
+Z8 DPx10 cycloneive 20 cycloneive_atom_pack 0 22 cRVo4_eF^d3j_2hJDo5j82
+Z9 DPx4 ieee 12 vital_timing 0 22 J>EBealN09f8GzldA[z2>3
+Z10 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z11 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+Z12 DPx10 cycloneive 21 cycloneive_components 0 22 P>[e5QcgT43>;6SoGhVJL2
+!i122 26
+R1
+Z13 8riscv_cpu.vho
+Z14 Friscv_cpu.vho
+l0
+L78 1
+VbAT6N:f28G1Rc?jFY9NQU1
+!s100 BZKH;G>P8>42QEO7F9Q4F0
+Z15 OL;C;2021.2;73
+32
+Z16 !s110 1721317913
+!i10b 1
+Z17 !s108 1721317913.000000
+Z18 !s90 -work|work|riscv_cpu.vho|
+Z19 !s107 riscv_cpu.vho|
+!i113 0
+Z20 o-work work
+Z21 tExplicit 1 CvgOpt 0
+Astructure
+R7
+R8
+R9
+R10
+R11
+R12
+DEx4 work 2 en 0 22 bAT6N:f28G1Rc?jFY9NQU1
+32
+R16
+!i122 26
+l121
+L94 107
+VZUPCD40SM;LSD:_;QjYho0
+!s100 KHiA9;<VDcHCmLi=HFam13
+R15
+!i10b 1
+R17
+R18
+R19
+!i113 0
+R20
+R21
+Een_vhd_vec_tst
+Z22 w1721317908
+R10
+R11
+!i122 27
+R1
+Z23 8en.vwf.vht
+Z24 Fen.vwf.vht
+l0
+Z25 L32 1
+VTHajlPXER0OHHUT<2g1H>2
+!s100 OcC1eaRzNRP83gEZ8[Q:j2
+R15
+32
+Z26 !s110 1721317914
+!i10b 1
+R17
+Z27 !s90 -work|work|en.vwf.vht|
+Z28 !s107 en.vwf.vht|
+!i113 0
+R20
+R21
+Aen_arch
+R10
+R11
+DEx4 work 14 en_vhd_vec_tst 0 22 THajlPXER0OHHUT<2g1H>2
+32
+R26
+!i122 27
+l49
+L34 49
+Ve;9UGEWYJ2^^WZ?1Ol6iB3
+!s100 YX]RoD9`5Zi4ZNDPJWKcB3
+R15
+!i10b 1
+R17
+R27
+R28
+!i113 0
+R20
+R21
+Ehard_block
+Z29 w1722380418
+R7
+R8
+R9
+R10
+R11
+R12
+!i122 50
+R1
+R13
+R14
+l0
+L35 1
+VB]0;STalBkCB1_B4BXQDW2
+!s100 >mXi5[`cD`bFC`UBKA<om3
+R15
+32
+Z30 !s110 1722380418
+!i10b 1
+Z31 !s108 1722380418.000000
+R18
+R19
+!i113 0
+R20
+R21
+Astructure
+R7
+R8
+R9
+R10
+R11
+R12
+DEx4 work 10 hard_block 0 22 B]0;STalBkCB1_B4BXQDW2
+!i122 50
+l65
+L51 20
+Via>5o7W??azG@W@@eFOTF0
+!s100 [5;Wd8QGQ>@2NGoJ1I]Y43
+R15
+32
+R30
+!i10b 1
+R31
+R18
+R19
+!i113 0
+R20
+R21
+Eregister_file
+Z32 w1721322462
+R8
+R12
+R7
+Z33 DPx6 altera 11 dffeas_pack 0 22 @IkSATE>m_L0Y4AZ`gMn53
+R9
+R10
+R11
+Z34 DPx6 altera 28 altera_primitives_components 0 22 [l]fgE<8WZHOM90W5M[m<1
+!i122 42
+R1
+R13
+R14
+l0
+Z35 L80 1
+V35DL7e?>0e1<kGP>7>od;2
+!s100 >POYV^HHMGd@zg?>Y7[@e3
+R15
+32
+!s110 1721322464
+!i10b 1
+Z36 !s108 1721322464.000000
+R18
+R19
+!i113 0
+R20
+R21
+Astructure
+R8
+R12
+R7
+R33
+R9
+R10
+R11
+R34
+DEx4 work 13 register_file 0 22 35DL7e?>0e1<kGP>7>od;2
+32
+Z37 !s110 1721322465
+!i122 42
+l2678
+L211 43376
+VR:G`kKnL;4GH4On1XZASN2
+!s100 02<EzC[SJT[W;<PXWW^lD3
+R15
+!i10b 1
+R36
+R18
+R19
+!i113 0
+R20
+R21
+Eregister_file_vhd_vec_tst
+Z38 w1721322456
+R10
+R11
+!i122 43
+R1
+Z39 8register_file.vwf.vht
+Z40 Fregister_file.vwf.vht
+l0
+R25
+VK00f?:kJB3:KnNDk?cGzn2
+!s100 elaPeE<Wh7^]LDZc76QB:3
+R15
+32
+R37
+!i10b 1
+Z41 !s108 1721322465.000000
+Z42 !s90 -work|work|register_file.vwf.vht|
+Z43 !s107 register_file.vwf.vht|
+!i113 0
+R20
+R21
+Aregister_file_arch
+R10
+R11
+DEx4 work 25 register_file_vhd_vec_tst 0 22 K00f?:kJB3:KnNDk?cGzn2
+32
+R37
+!i122 43
+l59
+Z44 L34 578
+V]AfF=ibK4gbPS06gAgooZ3
+!s100 cIMPcE3C:>:IKaAnSPg^>2
+R15
+!i10b 1
+R41
+R42
+R43
+!i113 0
+R20
+R21
+Eregisterfile
+R29
+R8
+R12
+R7
+R33
+R9
+R10
+R11
+R34
+!i122 50
+R1
+R13
+R14
+l0
+R35
+V5MC420RJgo68TQeXk2njg3
+!s100 a8o0eg5<888o1GNbZa?O91
+R15
+32
+R30
+!i10b 1
+R31
+R18
+R19
+!i113 0
+R20
+R21
+Astructure
+R8
+R12
+R7
+R33
+R9
+R10
+R11
+R34
+DEx4 work 12 registerfile 0 22 5MC420RJgo68TQeXk2njg3
+!i122 50
+l2684
+L211 43494
+VMV53S;U1kWN=mWW7Zh@9;0
+!s100 XgOzYL0V8_YBzO]d9YU922
+R15
+32
+R5
+!i10b 1
+R31
+R18
+R19
+!i113 0
+R20
+R21
+Eregisterfile_vhd_vec_tst
+Z45 w1722380416
+R10
+R11
+!i122 51
+R1
+Z46 8RegisterFile.vwf.vht
+Z47 FRegisterFile.vwf.vht
+l0
+R25
+VNGXS`igg9DcMD?2j`N?I61
+!s100 f6czE0_II:>>`zlHdIMB^3
+R15
+32
+R5
+!i10b 1
+Z48 !s108 1722380419.000000
+Z49 !s90 -work|work|RegisterFile.vwf.vht|
+Z50 !s107 RegisterFile.vwf.vht|
+!i113 0
+R20
+R21
+Aregisterfile_arch
+R10
+R11
+DEx4 work 24 registerfile_vhd_vec_tst 0 22 NGXS`igg9DcMD?2j`N?I61
+!i122 51
+l59
+R44
+VC1:Vo2BI2?Fe3WJog?SL@1
+!s100 FoEi?YKVWDzKz5GiFll@R1
+R15
+32
+R5
+!i10b 1
+R48
+R49
+R50
+!i113 0
+R20
+R21

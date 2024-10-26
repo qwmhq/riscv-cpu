@@ -4,6 +4,7 @@ use ieee.numeric_std.all;
 
 entity ALU is
 port(
+	clock	: in std_logic;
 	x, y	: in std_logic_vector(31 downto 0);
 	func3	: in std_logic_vector(2 downto 0);
 	func7	: in std_logic_vector(6 downto 0);
@@ -99,22 +100,32 @@ begin
 
 	MUL1 : entity work.Multiplier
 	port map(
+		clock	=> clock,
 		dataa	=> x_ext,
 		datab	=> y_ext,
 		result	=> mul_res_full
 	);
-	mul_result		<= mul_res_full(31 downto 0);
-	mulh_result		<= mul_res_full(63 downto 32);
+	mul_result <= mul_res_full(31 downto 0);
+	mulh_result <= mul_res_full(63 downto 32);
 
 	DIV1 : entity work.Divider
 	port map(
+		clock		=> clock,
 		numer		=> x_ext,
 		denom		=> y_ext,
 		quotient	=> div_res_full,
 		remain		=> rem_res_full
 	);
-	div_result		<= div_res_full(31 downto 0);
-	rem_result		<= rem_res_full(31 downto 0);
+	div_result <= div_res_full(31 downto 0);
+	rem_result <= rem_res_full(31 downto 0);
+
+	/*
+	mul_result	<= (others => '0');
+	mulh_result	<= (others => '0');
+
+	div_result	<= (others => '0');
+	rem_result	<= (others => '0');
+	*/
 
 	with (func3) select
 		res2 <= mul_result when "000",

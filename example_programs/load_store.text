@@ -1,0 +1,5 @@
+Address     Code        Basic                        Line Source
+
+0x00400000  0x06900293  addi x5,x0,0x00000069        3    	addi x5, x0, 0x69
+0x00400004  0x00502a23  sw x5,20(x0)                 4    	sw x5, 20(x0)
+0x00400008  0x01402383  lw x7,20(x0)                 5    	lw x7, 20(x0)

@@ -1,0 +1,6 @@
+v1
+DSP_BALANCING_IMPLEMENTATION,DSP_BLOCKS,CPU:U5|ALU:ALU|Multiplier:MUL1|lpm_mult:lpm_mult_component|mult_7qs:auto_generated|mac_out2,
+DSP_BALANCING_IMPLEMENTATION,DSP_BLOCKS,CPU:U5|ALU:ALU|Multiplier:MUL1|lpm_mult:lpm_mult_component|mult_7qs:auto_generated|mac_out6,
+DSP_BALANCING_IMPLEMENTATION,DSP_BLOCKS,CPU:U5|ALU:ALU|Multiplier:MUL1|lpm_mult:lpm_mult_component|mult_7qs:auto_generated|mac_out4,
+DSP_BALANCING_IMPLEMENTATION,DSP_BLOCKS,CPU:U5|ALU:ALU|Multiplier:MUL1|lpm_mult:lpm_mult_component|mult_7qs:auto_generated|mac_out8,
+PORT_SWAPPING,PORT_SWAP_TYPE_DSPMULT,CPU:U5|ALU:ALU|Multiplier:MUL1|lpm_mult:lpm_mult_component|mult_7qs:auto_generated|mac_mult5,

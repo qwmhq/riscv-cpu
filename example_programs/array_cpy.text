@@ -1,0 +1,10 @@
+Address     Code        Basic                        Line Source
+
+0x00400000  0x00000313  addi x6,x0,0                 4    	addi t1, zero, 0	# counter (t1) = 0
+0x00400004  0x00a00393  addi x7,x0,10                5    	addi t2, zero, 10	# number of iterations
+0x00400008  0x0005a283  lw x5,0(x11)                 8    	lw t0, 0(a1)		# load an element from the source array
+0x0040000c  0x00562023  sw x5,0(x12)                 9    	sw t0, 0(a2)		# store an element in the destination array
+0x00400010  0x00458593  addi x11,x11,4               11   	addi a1, a1, 4		# get the address of the next element : src array
+0x00400014  0x00460613  addi x12,x12,4               12   	addi a2, a2, 4		# destination array
+0x00400018  0x00130313  addi x6,x6,1                 13   	addi t1, t1, 1		# increment the counter
+0x0040001c  0xfe7316e3  bne x6,x7,0xffffffec         14   	bne t1, t2, .loop	# loop back

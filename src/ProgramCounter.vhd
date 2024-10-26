@@ -17,7 +17,7 @@ architecture arch of ProgramCounter is
 begin
 	process(clk, reset, wren)
 	begin
-		if reset = '1' then
+		if reset = '0' then
 			pc <= (others => '0');
 		elsif falling_edge(clk) and wren = '1' then
 			pc <= pc_next;

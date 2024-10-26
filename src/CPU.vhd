@@ -4,19 +4,20 @@ use work.common_pkg.all;
 
 entity CPU is
 port(
-	clk,
+	clk		: in std_logic;
+	clken	: in std_logic;
 	reset	: in std_logic;
 
 	inst		: in std_logic_vector(INST_WIDTH-1 downto 0);
 	mem_in		: in std_logic_vector(DATA_WIDTH-1 downto 0);
---	rs3			: in std_logic_vector(4 downto 0);
+	regsel		: in std_logic_vector(4 downto 0);
 
 	pc			: out std_logic_vector(PC_WIDTH-1 downto 0);
 	mem_addr	: out std_logic_vector(XLEN-1 downto 0);
 	mem_out		: out std_logic_vector(DATA_WIDTH-1 downto 0);
 	mem_mode	: out std_logic_vector(2 downto 0);
-	wr_mem		: out std_logic
---	r3			: out std_logic_vector(DATA_WIDTH-1 downto 0)
+	wr_mem		: out std_logic;
+	regsel_val	: out std_logic_vector(DATA_WIDTH-1 downto 0)
 );
 end CPU;
 
@@ -51,6 +52,7 @@ begin
 
 	ALU : entity work.ALU
 	port map(
+		clock	=> clk,
 		x		=> alu_x,
 		y		=> alu_y,
 		func3	=> alu_func3,
@@ -62,20 +64,21 @@ begin
 	port map(
 		rs1		=> rs1,
 		rs2		=> rs2,
---		rs3		=> rs3,
+		rs3		=> regsel,
 		rd		=> rd,
 		data_in	=> rd_val,
 		wr_en	=> wr_rd,
 		clk		=> clk,
 		reset	=> reset,
 		r1		=> r1,
-		r2		=> r2
---		r3		=> r3
+		r2		=> r2,
+		r3		=> regsel_val
 	);
 
 	CU : entity work.ControlUnit
 	port map(
 		clk		=> clk,
+		clken	=> clken,
 		reset	=> reset,
 		opcode	=> opcode,
 		func3	=> func3,

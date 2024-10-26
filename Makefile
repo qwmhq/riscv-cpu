@@ -50,6 +50,17 @@ sevensegctrl:
 	@$(GHDL) -e $(FLAGS) SevenSegmentController_TB
 	@$(GHDL) -r $(FLAGS) SevenSegmentController_TB --wave=waves/sevensegctrl_wave.ghw --stop-time=10000ns
 
+keypad:
+	@$(GHDL) -a $(FLAGS) src/KeypadScanner.vhd tb/KeypadScanner_TB.vhd
+	@$(GHDL) -e $(FLAGS) KeypadScanner_TB
+	@$(GHDL) -r $(FLAGS) KeypadScanner_TB --wave=waves/keypad_wave.ghw --stop-time=10000ms
+
+lcddriver:
+	@$(GHDL) -a $(FLAGS) src/LCDDriver.vhd tb/LCDDriver_TB.vhd
+	@$(GHDL) -e $(FLAGS) LCDDriver_TB
+	@$(GHDL) -r $(FLAGS) LCDDriver_TB --wave=waves/lcddriver_wave.ghw --stop-time=10000ns
+
+
 clean:
 	@$(GHDL) --clean
 	@rm waves/*.ghw waves/*.vcd
