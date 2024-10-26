@@ -1,4 +1,9 @@
 # vim temp files
-*.swp
+*.sw[p|o]
 
 *.bak
+
+db/
+incremental_db/
+output_files/
+
