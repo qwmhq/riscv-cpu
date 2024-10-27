@@ -10,11 +10,5 @@
 	addi t0, t0, 1		# increment the counter
 	bge t1, t0, .loop	# loop condition
 
-
-# machine code:
-# 04:	00100293
-# 08:	00000413
-# 0c:	00a00313
-# 10:	00540433
-# 14:	00128293
-# 18:	fe535ce3
+.write:
+	sw s0, 0x7F8(x0)	# store result in memory location 0x7f8

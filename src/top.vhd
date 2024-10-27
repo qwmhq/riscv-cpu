@@ -181,7 +181,11 @@ begin
 	in_port_data(15 downto 0) <= (others => '0');
 	U4 : entity work.Memory
 	port map(
-		clock	=> clock_25,
+		clock_a	=> clock_25,
+		clocken_a => '1',
+
+		clock_b	=> clock_25,
+		clocken_b => '1',
 
 		addr_a		=> mem_addr_a,
 		data_in_a	=> mem_data_in_a,

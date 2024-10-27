@@ -85,6 +85,9 @@ R0
 R0
 R0
 R0
+R0
+R0
+R0
 !s11e vcom 2021.2 2021.04, Apr 14 2021
 13
 !s112 1.1
@@ -114,54 +117,54 @@ o-quiet -auto_acc_if_foreign -work work
 R3
 n@_opt1
 R4
+R1
 T_opt2
-!s110 1725544180
-V;VQ]b4k>[N_mfi_jbIc1_3
-04 6 4 work top_tb arch 1
-=2-000ae431a4f1-66d9b6f2-f3658-16ad23
-!s124 OEM10U11 
+!s110 1729957057
+VJHo^geN3=dW;[W<NUnIOM0
+04 6 4 work cpu_tb arch 1
+=8-000ae431a4f1-671d0cc0-d8406-3b9b0
+!s124 OEM10U13 
 R2
 R3
 n@_opt2
 R4
-R1
 Ealu
-Z5 w1726573931
+Z5 w1729937009
 Z6 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
 Z7 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
 Z8 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
-!i122 1228
+!i122 1252
 R1
 Z9 8/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/ALU.vhd
 Z10 F/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/ALU.vhd
 l0
 L5 1
-VINPaHDVP21]IzF0<jWDoM2
-!s100 QiROHi0eQ_XY?alS2`7Qe3
+V<j2I9bjeckY;kA@6N[@@h3
+!s100 ?UlP7CiWjh<mk0DmGFM9e1
 Z11 OL;C;2021.2;73
-32
-Z12 !s110 1726574204
+33
+Z12 !s110 1729954258
 !i10b 1
-Z13 !s108 1726574204.000000
+Z13 !s108 1729954258.000000
 Z14 !s90 -reportprogress|300|-work|work|/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/ALU.vhd|
 Z15 !s107 /home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/ALU.vhd|
 !i113 0
 Z16 o-work work
-Z17 tExplicit 1 CvgOpt 0
+Z17 tExplicit 1 NoCoverage 1 CvgOpt 0
 Aarch
-Z18 DEx4 work 7 divider 0 22 7mTmd?RHBGi8Y_8S2bY=c3
-Z19 DEx4 work 10 multiplier 0 22 ;dZZI93<h4=dUFHid_jJa2
+Z18 DEx4 work 7 divider 0 22 2WQRb`AQg7@_1bLLmoe>V2
+Z19 DEx4 work 10 multiplier 0 22 20bHD:SJY[Nm1bfdEaV8:2
 R6
 R7
 R8
-Z20 DEx4 work 3 alu 0 22 INPaHDVP21]IzF0<jWDoM2
-!i122 1228
-l48
-L14 118
-V6fPaKNNS3HZG?IzXa_aGb0
-!s100 ^0DTb^5]^:Yd5o5V=`z3K3
+Z20 DEx4 work 3 alu 0 22 <j2I9bjeckY;kA@6N[@@h3
+!i122 1252
+l49
+L15 128
+VX:V[Sk;<_5NAKn2;Q`6H:3
+!s100 3MEc`R537i>MUG7HQYeY?1
 R11
-32
+33
 R12
 !i10b 1
 R13
@@ -171,23 +174,24 @@ R15
 R16
 R17
 Ealu_tb
-Z21 w1723666933
+R5
+Z21 DPx4 work 10 common_pkg 0 22 1QAnMnVd:R@k2El>aNEjj3
 R6
 R7
 R8
-!i122 1229
+!i122 1253
 R1
 Z22 8/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/tb/ALU_TB.vhd
 Z23 F/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/tb/ALU_TB.vhd
 l0
-L5 1
-VTX7>bCLdi;>Q6Oj1mz_aC1
-!s100 [<cLbJ7=^n6nRiHQcWfmQ3
+L6 1
+VW9@IWGN:nML]X<QWH35J]0
+!s100 ]c=n5NF>FJh1BFoIM<V6H3
 R11
-32
-Z24 !s110 1726574211
+33
+Z24 !s110 1729954262
 !i10b 1
-Z25 !s108 1726574211.000000
+Z25 !s108 1729954262.000000
 Z26 !s90 -reportprogress|300|-work|work|/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/tb/ALU_TB.vhd|
 Z27 !s107 /home/quwam/programming-stuff/cpu-stuff/riscv-cpu/tb/ALU_TB.vhd|
 !i113 0
@@ -195,17 +199,18 @@ R16
 R17
 Aarch
 R20
+R21
 R6
 R7
 R8
-DEx4 work 6 alu_tb 0 22 TX7>bCLdi;>Q6Oj1mz_aC1
-!i122 1229
-l39
-L8 62
-VSjVdPhFgzTRe^`[o51G@S2
-!s100 o]Hi3D^3oag0e_`[A:VCM1
+DEx4 work 6 alu_tb 0 22 W9@IWGN:nML]X<QWH35J]0
+!i122 1253
+l41
+L9 69
+Vh@Kj=[mRTI=X4=Q6QYgVG0
+!s100 37SJ>RRBk5OWHKmlf^8<N1
 R11
-32
+33
 R24
 !i10b 1
 R25
@@ -215,201 +220,298 @@ R27
 R16
 R17
 Ebyteenableencoder
-Z28 w1722080143
+R5
 R7
 R8
-!i122 891
+!i122 1254
 R1
-Z29 8/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/ByteEnableEncoder.vhd
-Z30 F/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/ByteEnableEncoder.vhd
+Z28 8/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/ByteEnableEncoder.vhd
+Z29 F/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/ByteEnableEncoder.vhd
 l0
 L4 1
-V>oJWCN4@MPiHZ2@T460e12
+VFF]UXIXA1iH5GA`H?feji3
 !s100 z9:[_h49Y[O:8NOSd>VIb3
 R11
-32
-Z31 !s110 1724158659
+33
+Z30 !s110 1729954267
 !i10b 1
-Z32 !s108 1724158659.000000
-Z33 !s90 -work|work|/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/ByteEnableEncoder.vhd|
-Z34 !s107 /home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/ByteEnableEncoder.vhd|
+Z31 !s108 1729954267.000000
+Z32 !s90 -reportprogress|300|-work|work|/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/ByteEnableEncoder.vhd|
+Z33 !s107 /home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/ByteEnableEncoder.vhd|
 !i113 0
 R16
 R17
 Aarch
 R7
 R8
-Z35 DEx4 work 17 byteenableencoder 0 22 >oJWCN4@MPiHZ2@T460e12
-!i122 891
+Z34 DEx4 work 17 byteenableencoder 0 22 FF]UXIXA1iH5GA`H?feji3
+!i122 1254
 l13
 L12 11
-VNb:=0KFS;RBAKH6HhSm7k2
+V>5c=D6YU1i7jI7fHc5M>m3
 !s100 ^QY>o:gf>[?@gB5`_b8=61
 R11
-32
-R31
+33
+R30
 !i10b 1
+R31
 R32
 R33
-R34
 !i113 0
 R16
 R17
 Pcommon_pkg
+R6
 R7
 R8
-!i122 1214
-Z36 w1725347304
+!i122 1255
+R5
 R1
-Z37 8/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/common_pkg.vhd
-Z38 F/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/common_pkg.vhd
+Z35 8/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/common_pkg.vhd
+Z36 F/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/common_pkg.vhd
 l0
-L4 1
-VAmK6JVO4o`cCh<geY:24_1
-!s100 N]Ei5h5ae`QI52mTk@0:Q1
+L5 1
+V1QAnMnVd:R@k2El>aNEjj3
+!s100 G2nOOInH^QX;CF[JXH>P?1
 R11
 33
 b1
-Z39 !s110 1725543847
+Z37 !s110 1729954270
 !i10b 1
-Z40 !s108 1725543847.000000
-Z41 !s90 -reportprogress|300|-2008|-work|work|/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/common_pkg.vhd|
-Z42 !s107 /home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/common_pkg.vhd|
+Z38 !s108 1729954270.000000
+Z39 !s90 -reportprogress|300|-2008|-work|work|/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/common_pkg.vhd|
+Z40 !s107 /home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/common_pkg.vhd|
 !i113 0
-Z43 o-2008 -work work
+Z41 o-2008 -work work
 R17
 Bbody
-Z44 DPx4 work 10 common_pkg 0 22 AmK6JVO4o`cCh<geY:24_1
+R21
+R6
 R7
 R8
-!i122 1214
+!i122 1255
 l0
-L34 1
-V9k_7P]3J7XlAROUhPaRTV0
-!s100 3f@AfYXNT>HAAZXL7a`_<1
+L40 1
+VU>9CPMYD98<cLFK04Jo?A3
+!s100 EnYZPf?`YPb_kZ>0TbUSF2
 R11
 33
-R39
+R37
 !i10b 1
+R38
+R39
 R40
-R41
-R42
 !i113 0
-R43
+R41
 R17
 Econtrolunit
-Z45 w1724990123
-R44
+Z42 w1729957020
+R21
 R6
 R7
 R8
-!i122 1220
+!i122 1275
 R1
-Z46 8/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/ControlUnit.vhd
-Z47 F/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/ControlUnit.vhd
+Z43 8/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/ControlUnit.vhd
+Z44 F/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/ControlUnit.vhd
 l0
 L6 1
-VHPBiPX<ne0^hKDJ6^6>Gb2
-!s100 kzZDn]iF]GkJb@akDOe^A1
+VPQO`@Kz:l]=XaS55TYD0@3
+!s100 oTk?jcWUYknkUEO>mgU;10
 R11
 33
-Z48 !s110 1725543849
+Z45 !s110 1729957049
 !i10b 1
-Z49 !s108 1725543849.000000
-Z50 !s90 -reportprogress|300|-2008|-work|work|/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/ControlUnit.vhd|
-Z51 !s107 /home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/ControlUnit.vhd|
+Z46 !s108 1729957049.000000
+Z47 !s90 -reportprogress|300|-2008|-work|work|/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/ControlUnit.vhd|
+Z48 !s107 /home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/ControlUnit.vhd|
 !i113 0
-R43
+R41
 R17
 Aarch
-R44
+R21
 R6
 R7
 R8
-Z52 DEx4 work 11 controlunit 0 22 HPBiPX<ne0^hKDJ6^6>Gb2
-!i122 1220
-l46
-L33 88
-VzHVOJTMF19He_bI9<Q`f?1
-!s100 QF82?Td0`nc@94]A2l9oj3
+Z49 DEx4 work 11 controlunit 0 22 PQO`@Kz:l]=XaS55TYD0@3
+!i122 1275
+l52
+L34 147
+V1kBjD2YgkFHVi]czD<KVD1
+!s100 Amf]P1310fO6=`=P@c?aJ2
 R11
 33
-R48
+R45
 !i10b 1
-R49
-R50
-R51
+R46
+R47
+R48
 !i113 0
-R43
+R41
+R17
+Econtrolunit_tb
+R5
+R21
+R6
+R7
+R8
+!i122 1257
+R1
+Z50 8/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/tb/ControlUnit_TB.vhd
+Z51 F/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/tb/ControlUnit_TB.vhd
+l0
+L6 1
+VSe]dEK2Qm<RBYz<GNhLSa1
+!s100 m5:4Z=07O<?gER>e?Y@4b3
+R11
+33
+Z52 !s110 1729954276
+!i10b 1
+Z53 !s108 1729954275.000000
+Z54 !s90 -reportprogress|300|-work|work|/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/tb/ControlUnit_TB.vhd|
+Z55 !s107 /home/quwam/programming-stuff/cpu-stuff/riscv-cpu/tb/ControlUnit_TB.vhd|
+!i113 0
+R16
+R17
+Aarch
+R49
+Z56 DEx4 work 11 instdecoder 0 22 dLa[ZXHmSHQD>oZP65mCk3
+R21
+R6
+R7
+R8
+DEx4 work 14 controlunit_tb 0 22 Se]dEK2Qm<RBYz<GNhLSa1
+!i122 1257
+l32
+L9 159
+V7if<I5YH[`kViz8Z?j9^>2
+!s100 CC12RLl@Mnj8GIR8CkzSE2
+R11
+33
+R52
+!i10b 1
+R53
+R54
+R55
+!i113 0
+R16
 R17
 Ecpu
-Z53 w1725475773
-R44
+Z57 w1729948973
+R6
+R21
 R7
 R8
-!i122 1222
+!i122 1268
 R1
-Z54 8/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/CPU.vhd
-Z55 F/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/CPU.vhd
+Z58 8/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/CPU.vhd
+Z59 F/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/CPU.vhd
 l0
 L5 1
-VV@<i9INc_hHjf:ocYfX<e3
-!s100 _mJ:a4a357aKgJf1W0iVK2
+VEZ6JiaaIg@CGZQ2eAD2f=0
+!s100 lO@XOBj2dVST?7dNO;bfQ0
 R11
 33
-R48
+Z60 !s110 1729954337
 !i10b 1
-R49
-Z56 !s90 -reportprogress|300|-2008|-work|work|/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/CPU.vhd|
-Z57 !s107 /home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/CPU.vhd|
+Z61 !s108 1729954337.000000
+Z62 !s90 -reportprogress|300|-2008|-work|work|/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/CPU.vhd|
+Z63 !s107 /home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/CPU.vhd|
 !i113 0
-R43
+R41
 R17
 Aarch
-Z58 DEx4 work 14 programcounter 0 22 `^U:?I4nTjZl31`giM^oz1
-R52
-Z59 DEx4 work 12 registerfile 0 22 E7e>UE4LI[E<CV@d`>g[`2
+Z64 DEx4 work 14 programcounter 0 22 `b7__dnCo8onaGHeOQdST0
+R49
+Z65 DEx4 work 12 registerfile 0 22 Zb`QK>3fTFCeoh2UFZA;_0
+R20
+R56
 R6
-DEx4 work 3 alu 0 22 ]AHdH6m<PGN`inX>m?U`g2
-Z60 DEx4 work 11 instdecoder 0 22 HQim`^2aAHi]W2YG9VHX32
-R44
+R21
 R7
 R8
-Z61 DEx4 work 3 cpu 0 22 V@<i9INc_hHjf:ocYfX<e3
-!i122 1222
-l39
-L23 92
-VGPWDG]3Y[fb6N`5YM9R883
-!s100 UIHZ`bh1]9XB;^LE58oS83
+Z66 DEx4 work 3 cpu 0 22 EZ6JiaaIg@CGZQ2eAD2f=0
+!i122 1268
+l41
+L25 97
+Va;z[T1z:]g94ZJ9lGd1o]1
+!s100 BG0F?X7c31KDS;oMn^C[P2
 R11
 33
-R48
+R60
 !i10b 1
-R49
-R56
-R57
+R61
+R62
+R63
 !i113 0
-R43
+R41
 R17
-Edivider
-Z62 w1726575429
+Ecpu_tb
+Z67 w1729952609
+R21
+R6
 R7
 R8
-!i122 1230
+!i122 1269
 R1
-Z63 8/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/Divider.vhd
-Z64 F/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/Divider.vhd
+Z68 8/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/tb/CPU_TB.vhd
+Z69 F/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/tb/CPU_TB.vhd
 l0
-Z65 L43 1
-V7mTmd?RHBGi8Y_8S2bY=c3
-!s100 lKaoCTXUgQY7gFo0O7ORB2
+L6 1
+V0N[QU;AHc_A`QTzF]H6;=0
+!s100 ZAabHlT8zJM34nEL>hm?[1
+R11
+33
+R60
+!i10b 1
+R61
+Z70 !s90 -reportprogress|300|-work|work|/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/tb/CPU_TB.vhd|
+Z71 !s107 /home/quwam/programming-stuff/cpu-stuff/riscv-cpu/tb/CPU_TB.vhd|
+!i113 0
+R16
+R17
+Aarch
+Z72 DEx4 work 6 memory 0 22 Sgc]MH37KNI]M2d^z4MbW3
+R66
+R21
+R6
+R7
+R8
+DEx4 work 6 cpu_tb 0 22 0N[QU;AHc_A`QTzF]H6;=0
+!i122 1269
+l49
+L9 106
+V3OhS;MA;i0jAkR@o1k?eC3
+!s100 VT2[K>lGFRf247o4eUkZ13
+R11
+33
+R60
+!i10b 1
+R61
+R70
+R71
+!i113 0
+R16
+R17
+Edivider
+R5
+R7
+R8
+!i122 1273
+R1
+Z73 8/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/Divider.vhd
+Z74 F/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/Divider.vhd
+l0
+Z75 L43 1
+V2WQRb`AQg7@_1bLLmoe>V2
+!s100 1=ja99`MH?Fha:0JeUFmB1
 R11
 32
-Z66 !s110 1726575468
+Z76 !s110 1729956738
 !i10b 1
-Z67 !s108 1726575468.000000
-Z68 !s90 -reportprogress|300|-work|work|/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/Divider.vhd|
-Z69 !s107 /home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/Divider.vhd|
+Z77 !s108 1729956738.000000
+Z78 !s90 -reportprogress|300|-work|work|/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/Divider.vhd|
+Z79 !s107 /home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/Divider.vhd|
 !i113 0
 R16
 R17
@@ -417,486 +519,219 @@ Asyn
 R7
 R8
 R18
-!i122 1230
-l78
-L54 47
-VmN@AHog=`eHf0?JV97[ZA0
-!s100 1n1<27j`CeAA>i3?LI?e53
+!i122 1273
+l81
+L55 51
+V9Tz[=>9Y06=8H6Y]l?]H32
+!s100 Va<=id@_zfQTGi@1WY<K_1
 R11
 32
-R66
+R76
 !i10b 1
-R67
-R68
-R69
+R77
+R78
+R79
 !i113 0
 R16
 R17
 Einstdecoder
-Z70 w1723782925
-R44
+R5
+R6
+R21
 R7
 R8
-!i122 1217
+!i122 1259
 R1
-Z71 8/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/InstDecoder.vhd
-Z72 F/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/InstDecoder.vhd
+Z80 8/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/InstDecoder.vhd
+Z81 F/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/InstDecoder.vhd
 l0
 L5 1
-VHQim`^2aAHi]W2YG9VHX32
+VdLa[ZXHmSHQD>oZP65mCk3
 !s100 hVT`2gJ_eNLOezkJEELF30
 R11
 33
-Z73 !s110 1725543848
+Z82 !s110 1729954291
 !i10b 1
-Z74 !s108 1725543848.000000
-Z75 !s90 -reportprogress|300|-2008|-work|work|/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/InstDecoder.vhd|
-Z76 !s107 /home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/InstDecoder.vhd|
+Z83 !s108 1729954291.000000
+Z84 !s90 -reportprogress|300|-2008|-work|work|/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/InstDecoder.vhd|
+Z85 !s107 /home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/InstDecoder.vhd|
 !i113 0
-R43
+R41
 R17
 Aarch
-R44
+R6
+R21
 R7
 R8
-R60
-!i122 1217
+R56
+!i122 1259
 l23
 L19 31
-VE?abF`cLN>7K;O9GCOI0@2
+VDGZA5BlK<J7Im68NOFamT0
 !s100 E2NWHfWfCR`[]=X=?nGV40
 R11
 33
-R73
-!i10b 1
-R74
-R75
-R76
-!i113 0
-R43
-R17
-Einstmem
-Z77 w1723979830
-R44
-R6
-R7
-R8
-!i122 981
-R1
-Z78 8/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/InstMem.vhd
-Z79 F/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/InstMem.vhd
-l0
-L6 1
-VLN@`khiI_fJba9HnDSDkR3
-!s100 7FbjH:7zT[k[nWKA[oOl:1
-R11
-33
-Z80 !s110 1725457177
-!i10b 1
-Z81 !s108 1725457177.000000
-Z82 !s90 -2008|-work|work|/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/InstMem.vhd|
-Z83 !s107 /home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/InstMem.vhd|
-!i113 0
-R43
-R17
-Aarch
-Z84 DPx9 altera_mf 20 altera_mf_components 0 22 z`PE^;i7^=^2F=6UIQiSN2
-Z85 DEx4 work 6 ipram2 0 22 ;[k?;G`mKhc@:M7[;VTSN3
-R44
-R6
-R7
-R8
-Z86 DEx4 work 7 instmem 0 22 LN@`khiI_fJba9HnDSDkR3
-!i122 981
-l20
-L17 16
-VD9LR^`58ohZ4fAWjNM4D:2
-!s100 Oii2i>g3`mM8eQzO1FaI93
-R11
-33
-R80
-!i10b 1
-R81
 R82
+!i10b 1
 R83
+R84
+R85
 !i113 0
-R43
-R17
-Einstmem_tb
-Z87 w1723982216
-Z88 DPx4 work 10 common_pkg 0 22 XaWnFSj47QWIojZ`^b66n2
-R6
-R7
-R8
-!i122 803
-R1
-Z89 8/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/tb/InstMem_TB.vhd
-Z90 F/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/tb/InstMem_TB.vhd
-l0
-L6 1
-Vn@>EIP[9kDAmgT:JIimAd1
-!s100 6VHiTUKoE@Jiab_Yh`E:91
-R11
-32
-Z91 !s110 1724155382
-!i10b 1
-Z92 !s108 1724155382.000000
-Z93 !s90 -work|work|/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/tb/InstMem_TB.vhd|
-Z94 !s107 /home/quwam/programming-stuff/cpu-stuff/riscv-cpu/tb/InstMem_TB.vhd|
-!i113 0
-R16
-R17
-Aarch
-DEx4 work 7 instmem 0 22 `FDU0=H?Md^k:OjHInE9A2
-R88
-R6
-R7
-R8
-DEx4 work 10 instmem_tb 0 22 n@>EIP[9kDAmgT:JIimAd1
-!i122 803
-l27
-L9 52
-VMZTYioQAP`jVh=eWIeTmT3
-!s100 [HH_VTYz84G>3S3K]eAcU3
-R11
-32
-R91
-!i10b 1
-R92
-R93
-R94
-!i113 0
-R16
+R41
 R17
 Eipmem
-Z95 w1725376465
-R84
+Z86 w1729952349
+Z87 DPx9 altera_mf 20 altera_mf_components 0 22 z`PE^;i7^=^2F=6UIQiSN2
 R7
 R8
-!i122 1216
+!i122 1261
 R1
-Z96 8/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/IpMem.vhd
-Z97 F/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/IpMem.vhd
+Z88 8/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/IpMem.vhd
+Z89 F/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/IpMem.vhd
 l0
-R65
-Vl7o0:<4CH;caR7UEK37Mz0
-!s100 h:ZH:J_UVV8XSgXa1S]RY3
+R75
+VA92Fl4S`>M5Jo3?3<@;;k1
+!s100 Win80VMPA<4:^zeoaD7F62
 R11
 33
-R73
+Z90 !s110 1729954301
 !i10b 1
-R74
-Z98 !s90 -reportprogress|300|-2008|-work|work|/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/IpMem.vhd|
-Z99 !s107 /home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/IpMem.vhd|
+Z91 !s108 1729954301.000000
+Z92 !s90 -reportprogress|300|-2008|-work|work|/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/IpMem.vhd|
+Z93 !s107 /home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/IpMem.vhd|
 !i113 0
-R43
+R41
 R17
 Asyn
-R84
+R87
 R7
 R8
-Z100 DEx4 work 5 ipmem 0 22 l7o0:<4CH;caR7UEK37Mz0
-!i122 1216
-l67
-L62 57
-V46<5meZ^ih;L^VC:R1=^]3
-!s100 ILI7CSE=^_X5ja74N6o?S0
+Z94 DEx4 work 5 ipmem 0 22 A92Fl4S`>M5Jo3?3<@;;k1
+!i122 1261
+l69
+L64 60
+VTOHZ<J9CzK_0O?3N]Z5U10
+!s100 =ZG76E<;]TE9PNE5;:nE_0
 R11
 33
-R73
+R90
 !i10b 1
-R74
-R98
-R99
+R91
+R92
+R93
 !i113 0
-R43
-R17
-Eipram
-Z101 w1725376493
-R84
-R7
-R8
-!i122 982
-R1
-Z102 8/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/IPRAM.vhd
-Z103 F/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/IPRAM.vhd
-l0
-R65
-V^;HZd`6nSlg4aeWkSKe>z0
-!s100 k5@8=cj?K278GFISjR1E`1
-R11
-33
-R80
-!i10b 1
-R81
-Z104 !s90 -2008|-work|work|/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/IPRAM.vhd|
-Z105 !s107 /home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/IPRAM.vhd|
-!i113 0
-R43
-R17
-Asyn
-R84
-R7
-R8
-DEx4 work 5 ipram 0 22 ^;HZd`6nSlg4aeWkSKe>z0
-!i122 982
-l60
-L56 37
-V9eEAP`4Ozk??;9YJzgPSV3
-!s100 FUSE4cWj7E0hWQ@H?V8N03
-R11
-33
-R80
-!i10b 1
-R81
-R104
-R105
-!i113 0
-R43
-R17
-Eipram2
-Z106 w1725424463
-R84
-R7
-R8
-!i122 980
-R1
-Z107 8/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/IPRAM2.vhd
-Z108 F/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/IPRAM2.vhd
-l0
-R65
-V;[k?;G`mKhc@:M7[;VTSN3
-!s100 3<n3BVfdQ1]EBUNmV;NEN1
-R11
-33
-R80
-!i10b 1
-R81
-Z109 !s90 -2008|-work|work|/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/IPRAM2.vhd|
-Z110 !s107 /home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/IPRAM2.vhd|
-!i113 0
-R43
-R17
-Asyn
-R84
-R7
-R8
-R85
-!i122 980
-l61
-L57 43
-VfHSkf3GiPnIz^;?m@2F5K0
-!s100 =FeG3okWPG<z`BGfIkHe40
-R11
-33
-R80
-!i10b 1
-R81
-R109
-R110
-!i113 0
-R43
+R41
 R17
 Ekeypadscanner
-Z111 w1727673628
+R5
 R6
 R7
 R8
-!i122 1232
+!i122 1262
 R1
-Z112 8/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/KeypadScanner.vhd
-Z113 F/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/KeypadScanner.vhd
+Z95 8/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/KeypadScanner.vhd
+Z96 F/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/KeypadScanner.vhd
 l0
 L5 1
-Vg]S_d`b[_9zif;4kCZG7j3
-!s100 EEJ9F8`I?h786h5jMOm;<2
+V;7?^]h:dK??]o7YL2B7bB2
+!s100 =JY?<Of5WM0C7E1dfRzf>1
 R11
 33
-Z114 !s110 1727719923
+Z97 !s110 1729954305
 !i10b 1
-Z115 !s108 1727719923.000000
-Z116 !s90 -reportprogress|300|-work|work|/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/KeypadScanner.vhd|
-Z117 !s107 /home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/KeypadScanner.vhd|
+Z98 !s108 1729954305.000000
+Z99 !s90 -reportprogress|300|-work|work|/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/KeypadScanner.vhd|
+Z100 !s107 /home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/KeypadScanner.vhd|
 !i113 0
 R16
-Z118 tExplicit 1 NoCoverage 1 CvgOpt 0
-Aarch
-R6
-R7
-R8
-Z119 DEx4 work 13 keypadscanner 0 22 g]S_d`b[_9zif;4kCZG7j3
-!i122 1232
-l29
-L17 100
-VAAMcKQfRDThOI9[3ooVOo3
-!s100 6US5SWGO2i`6IbP<>An9T1
-R11
-33
-R114
-!i10b 1
-R115
-R116
-R117
-!i113 0
-R16
-R118
-Ekeypadscanner_tb
-Z120 w1727661692
-R6
-R7
-R8
-!i122 1234
-R1
-Z121 8/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/tb/KeypadScanner_TB.vhd
-Z122 F/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/tb/KeypadScanner_TB.vhd
-l0
-L5 1
-VUc;1WkjDEg[V=WGOAfOEO1
-!s100 CAb<^@lefHXioGQMjJZOK1
-R11
-33
-Z123 !s110 1727719939
-!i10b 1
-Z124 !s108 1727719939.000000
-Z125 !s90 -reportprogress|300|-work|work|/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/tb/KeypadScanner_TB.vhd|
-Z126 !s107 /home/quwam/programming-stuff/cpu-stuff/riscv-cpu/tb/KeypadScanner_TB.vhd|
-!i113 0
-R16
-R118
-Aarch
-R119
-R6
-R7
-R8
-DEx4 work 16 keypadscanner_tb 0 22 Uc;1WkjDEg[V=WGOAfOEO1
-!i122 1234
-l19
-L8 50
-V;L03WE5nT5Pg`bo;Siem51
-!s100 ?BzDD5bE0FDD:VJZgG7`j3
-R11
-33
-R123
-!i10b 1
-R124
-R125
-R126
-!i113 0
-R16
-R118
-Ememory
-Z127 w1725456765
-R44
-R6
-R7
-R8
-!i122 1215
-R1
-Z128 8/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/Memory.vhd
-Z129 F/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/Memory.vhd
-l0
-L6 1
-VNceBz6cO_5`]6TB:;FW9a3
-!s100 79Umd<B?ng?Mk?bKoESTM3
-R11
-33
-R73
-!i10b 1
-R40
-Z130 !s90 -reportprogress|300|-2008|-work|work|/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/Memory.vhd|
-Z131 !s107 /home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/Memory.vhd|
-!i113 0
-R43
 R17
 Aarch
-R84
+R6
+R7
+R8
+DEx4 work 13 keypadscanner 0 22 ;7?^]h:dK??]o7YL2B7bB2
+!i122 1262
+l26
+L18 87
+ViYgV_0XFj2GAYb7aMbeR00
+!s100 ;B?IEonfoO;CSC]zO1XG60
+R11
+33
+R97
+!i10b 1
+R98
+R99
 R100
-R35
-R44
-R6
-R7
-R8
-Z132 DEx4 work 6 memory 0 22 NceBz6cO_5`]6TB:;FW9a3
-!i122 1215
-l70
-L24 171
-V7POgO7a]a<RSC[b9`cHM>2
-!s100 H`4hgR;=G@gGKAjgUNc4T3
-R11
-33
-R73
-!i10b 1
-R40
-R130
-R131
 !i113 0
-R43
+R16
 R17
-Ememory_tb
-Z133 w1724158619
-Z134 DPx4 work 10 common_pkg 0 22 WX><<zlF2<C3=hVc_4@I71
+Ememory
+Z101 w1729953013
+R21
 R6
 R7
 R8
-!i122 894
+!i122 1263
 R1
-Z135 8/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/tb/Memory_TB.vhd
-Z136 F/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/tb/Memory_TB.vhd
+Z102 8/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/Memory.vhd
+Z103 F/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/Memory.vhd
 l0
 L6 1
-VN?gG3I2VkV_Q1T2?Bo_c<3
-!s100 kX]4m7WNeAU4iOb@LW7o`2
+VSgc]MH37KNI]M2d^z4MbW3
+!s100 YV^4EA;D:KzI]Cl2HZHd90
 R11
-32
-Z137 !s110 1724158660
+33
+Z104 !s110 1729954308
 !i10b 1
-R32
-Z138 !s90 -work|work|/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/tb/Memory_TB.vhd|
-Z139 !s107 /home/quwam/programming-stuff/cpu-stuff/riscv-cpu/tb/Memory_TB.vhd|
+Z105 !s108 1729954308.000000
+Z106 !s90 -reportprogress|300|-2008|-work|work|/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/Memory.vhd|
+Z107 !s107 /home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/Memory.vhd|
 !i113 0
-R16
+R41
 R17
 Aarch
-DEx4 work 6 memory 0 22 =EQ?lk54iHY9P[Vzf;L5R0
-R134
+R87
+R94
+R34
+R21
 R6
 R7
 R8
-DEx4 work 9 memory_tb 0 22 N?gG3I2VkV_Q1T2?Bo_c<3
-!i122 894
-l24
-L9 91
-Vg_mmH5@84^A;>fVm@bz>F1
-!s100 d;mJR4`5@cjmDQDi9>je:3
+R72
+!i122 1263
+l84
+L31 212
+V`NloV[bGTz0oNJY<WM9U02
+!s100 `Fo2?bh]m:aB@fZGl@l4g2
 R11
-32
-R137
+33
+R104
 !i10b 1
-R32
-R138
-R139
+R105
+R106
+R107
 !i113 0
-R16
+R41
 R17
 Emultiplier
-Z140 w1726567416
+R5
 R7
 R8
-!i122 1227
+!i122 1274
 R1
-Z141 8/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/Multiplier.vhd
-Z142 F/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/Multiplier.vhd
+Z108 8/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/Multiplier.vhd
+Z109 F/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/Multiplier.vhd
 l0
-R65
-V;dZZI93<h4=dUFHid_jJa2
-!s100 `aeHmZMITQ`2ng@^CYfKB3
+R75
+V20bHD:SJY[Nm1bfdEaV8:2
+!s100 Vk@TNg@jLibhKMlmIRY`h2
 R11
 32
-Z143 !s110 1726574201
+R76
 !i10b 1
-Z144 !s108 1726574201.000000
-Z145 !s90 -reportprogress|300|-work|work|/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/Multiplier.vhd|
-Z146 !s107 /home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/Multiplier.vhd|
+R77
+Z110 !s90 -reportprogress|300|-work|work|/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/Multiplier.vhd|
+Z111 !s107 /home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/Multiplier.vhd|
 !i113 0
 R16
 R17
@@ -904,232 +739,139 @@ Asyn
 R7
 R8
 R19
-!i122 1227
-l75
-L53 43
-V7J`Ae3MYSZJTdkVi?e^?@2
-!s100 bG<4U@ODelMzA5UCHkPog2
+!i122 1274
+l78
+L54 47
+VUb0S8?9HZ]TeIL4d6MGZo1
+!s100 Lm[Ok8JfS5=IJPXb[<Da30
 R11
 32
-R143
+R76
 !i10b 1
-R144
-R145
-R146
+R77
+R110
+R111
 !i113 0
 R16
 R17
 Eprogramcounter
-Z147 w1724306251
-R44
+Z112 w1729943264
+R21
 R6
 R7
 R8
-!i122 1221
+!i122 1265
 R1
-Z148 8/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/ProgramCounter.vhd
-Z149 F/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/ProgramCounter.vhd
+Z113 8/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/ProgramCounter.vhd
+Z114 F/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/ProgramCounter.vhd
 l0
 L6 1
-V`^U:?I4nTjZl31`giM^oz1
-!s100 P5GOT_A[F:c>D;idaoU2e2
+V`b7__dnCo8onaGHeOQdST0
+!s100 hS=?T4H_cHLRm=DUZbV4N2
 R11
 33
-R48
+Z115 !s110 1729954316
 !i10b 1
-R49
-Z150 !s90 -reportprogress|300|-2008|-work|work|/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/ProgramCounter.vhd|
-Z151 !s107 /home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/ProgramCounter.vhd|
+Z116 !s108 1729954316.000000
+Z117 !s90 -reportprogress|300|-2008|-work|work|/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/ProgramCounter.vhd|
+Z118 !s107 /home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/ProgramCounter.vhd|
 !i113 0
-R43
+R41
 R17
 Aarch
-R44
+R21
 R6
 R7
 R8
-R58
-!i122 1221
-l17
-L16 11
-V0JjRROjnZl6Z?BHRLJ5K01
-!s100 gN^UYZ6[kHm`TInHlzASW1
+R64
+!i122 1265
+l18
+L17 13
+VHb^ngn5=j<`[K_74MQXn:2
+!s100 XN@gAKR9LaUof[mcblceU2
 R11
 33
-R48
+R115
 !i10b 1
-R49
-R150
-R151
+R116
+R117
+R118
 !i113 0
-R43
-R17
-Eram
-Z152 w1723903887
-R44
-R6
-R7
-R8
-!i122 983
-R1
-Z153 8/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/RAM.vhd
-Z154 F/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/RAM.vhd
-l0
-L6 1
-V8]>Xj``fI_99Q6EP6A80b0
-!s100 kzgWog1^lFL8=VTJ6X4cG3
-R11
-33
-R80
-!i10b 1
-R81
-Z155 !s90 -2008|-work|work|/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/RAM.vhd|
-Z156 !s107 /home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/RAM.vhd|
-!i113 0
-R43
-R17
-Aarch
-R84
-DEx4 work 5 ipram 0 22 0l4QEK9g?iQ@PL5LaMgKe3
-R35
-R44
-R6
-R7
-R8
-Z157 DEx4 work 3 ram 0 22 8]>Xj``fI_99Q6EP6A80b0
-!i122 950
-l35
-L17 77
-VO[<3N7[>d3Z<dDBa;J_f:3
-!s100 Xcn;fJofTGZ6OUG9_ffj<2
-R11
-33
-!s110 1724309957
-!i10b 1
-!s108 1724309956.000000
-R155
-R156
-!i113 0
-R43
-R17
-Eram_tb
-Z158 w1723903917
-R88
-R6
-R7
-R8
-!i122 795
-R1
-Z159 8/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/tb/RAM_TB.vhd
-Z160 F/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/tb/RAM_TB.vhd
-l0
-L6 1
-VY93Rl2TgNTCb9GWghWeHY2
-!s100 V]dERLlgojlnS:5?N]0:l1
-R11
-32
-!s110 1724155303
-!i10b 1
-!s108 1724155303.000000
-Z161 !s90 -work|work|/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/tb/RAM_TB.vhd|
-Z162 !s107 /home/quwam/programming-stuff/cpu-stuff/riscv-cpu/tb/RAM_TB.vhd|
-!i113 0
-R16
-R17
-Aarch
-DEx4 work 3 ram 0 22 AcBILjkbQIH7EdLz;MWId2
-DPx4 work 10 common_pkg 0 22 :PKmcn?fIfa67O=iaIOG23
-R6
-R7
-R8
-DEx4 work 6 ram_tb 0 22 Y93Rl2TgNTCb9GWghWeHY2
-!i122 85
-l42
-L9 103
-VTiBejRA@M[A0aW^GbCW442
-!s100 Hig0?501[hMieKS>lLkN_2
-R11
-32
-!s110 1723877688
-!i10b 1
-!s108 1723877688.000000
-R161
-R162
-!i113 0
-R16
+R41
 R17
 Eregisterfile
-Z163 w1725475617
+Z119 w1729943255
 R6
 R7
 R8
-!i122 1219
+!i122 1266
 R1
-Z164 8/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/RegisterFile.vhd
-Z165 F/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/RegisterFile.vhd
+Z120 8/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/RegisterFile.vhd
+Z121 F/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/RegisterFile.vhd
 l0
 L5 1
-VE7e>UE4LI[E<CV@d`>g[`2
-!s100 nN45dTbCa?<7joA`8:J@b1
+VZb`QK>3fTFCeoh2UFZA;_0
+!s100 ZOi^ePe9SbCKFBJ79hj3B1
 R11
 33
-R48
+Z122 !s110 1729954320
 !i10b 1
-R74
-Z166 !s90 -reportprogress|300|-2008|-work|work|/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/RegisterFile.vhd|
-Z167 !s107 /home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/RegisterFile.vhd|
+Z123 !s108 1729954320.000000
+Z124 !s90 -reportprogress|300|-2008|-work|work|/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/RegisterFile.vhd|
+Z125 !s107 /home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/RegisterFile.vhd|
 !i113 0
-R43
+R41
 R17
 Aarch
 R6
 R7
 R8
-R59
-!i122 1219
-l29
-L21 34
-Vli4POfEZ>0Eoglo7>ak@A0
-!s100 zl@A`0e>bIPAiiZlR7eLo0
+R65
+!i122 1266
+l33
+L25 34
+VPU]C2mJoUT[B;7?JkNijW1
+!s100 PA1TBY_8Jz^EE^FOfWcH;3
 R11
 33
-R48
+R122
 !i10b 1
-R74
-R166
-R167
+R123
+R124
+R125
 !i113 0
-R43
+R41
 R17
 Etop
-Z168 w1725396306
-R44
+Z126 w1729947716
+R21
+R6
 R7
 R8
-!i122 1003
+!i122 1267
 R1
-Z169 8/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/top.vhd
-Z170 F/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/top.vhd
+Z127 8/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/top.vhd
+Z128 F/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/top.vhd
 l0
-L5 1
-V]@@h5mH^`eiD3Z^;MIUmg1
-!s100 []3]M2>EAZfz4hP3Q[HPI1
+L6 1
+V]`5>`ECP9@D:Rh]DCzKda0
+!s100 hEF:b>bCUF;=e^?IaRA<Z1
 R11
 33
-!s110 1725459182
+!s110 1729954328
 !i10b 1
-!s108 1725459181.000000
-Z171 !s90 -2008|-work|work|/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/top.vhd|
-Z172 !s107 /home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/top.vhd|
+!s108 1729954327.000000
+!s90 -reportprogress|300|-2008|-work|work|/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/top.vhd|
+Z129 !s107 /home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/top.vhd|
 !i113 0
-R43
+R41
 R17
 Aarch
-R157
+DEx4 work 3 ram 0 22 8]>Xj``fI_99Q6EP6A80b0
 R6
-R86
+DEx4 work 7 instmem 0 22 LN@`khiI_fJba9HnDSDkR3
 DEx4 work 3 cpu 0 22 f`Z]]_Gl^iGZ6WkQUomLj2
-R44
+DPx4 work 10 common_pkg 0 22 AmK6JVO4o`cCh<geY:24_1
 R7
 R8
 DEx4 work 3 top 0 22 Z?cIf1TiT5IoW2=kd@<hW1
@@ -1143,55 +885,8 @@ R11
 !s110 1724309959
 !i10b 1
 !s108 1724309959.000000
-R171
-R172
+!s90 -2008|-work|work|/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/src/top.vhd|
+R129
 !i113 0
-R43
-R17
-Etop_tb
-Z173 w1725544156
-R44
-R6
-R7
-R8
-!i122 1224
-R1
-Z174 8/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/tb/top_tb.vhd
-Z175 F/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/tb/top_tb.vhd
-l0
-L6 1
-V:QABN0iECCMc@XmB>RCA90
-!s100 eefNN>0Ca8?P_VgAekTI?0
-R11
-33
-Z176 !s110 1725544173
-!i10b 1
-Z177 !s108 1725544173.000000
-Z178 !s90 -reportprogress|300|-2008|-work|work|/home/quwam/programming-stuff/cpu-stuff/riscv-cpu/tb/top_tb.vhd|
-Z179 !s107 /home/quwam/programming-stuff/cpu-stuff/riscv-cpu/tb/top_tb.vhd|
-!i113 0
-R43
-R17
-Aarch
-R132
-R61
-R44
-R6
-R7
-R8
-DEx4 work 6 top_tb 0 22 :QABN0iECCMc@XmB>RCA90
-!i122 1224
-l60
-L9 165
-V[zOFbSY7h1]cY33Ha`4240
-!s100 OShKIdP0YXf<7@OXhAXXG2
-R11
-33
-R176
-!i10b 1
-R177
-R178
-R179
-!i113 0
-R43
-R17
+R41
+tExplicit 1 CvgOpt 0

@@ -15,10 +15,11 @@ architecture arch of ProgramCounter_TB is
 begin
 	UUT: entity work.ProgramCounter
 	port map(
+		reset	=> reset,
+		clk		=> clk,
+		clken	=> '1',
 		pc_next	=> pc_next,
 		wren	=> wren,
-		clk		=> clk,
-		reset	=> reset,
 		pc		=> pc
 	);
 

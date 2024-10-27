@@ -8,6 +8,7 @@ end entity;
 
 architecture arch of Memory_TB is
 	signal clock	: std_logic := '1';
+	signal clocken	: std_logic := '1';
 
 	signal addr_a		: std_logic_vector(ADDR_WIDTH-1 downto 0);
 	signal data_in_a	: std_logic_vector(DATA_WIDTH-1 downto 0);
@@ -26,7 +27,11 @@ architecture arch of Memory_TB is
 begin
 	UUT : entity work.Memory
 	port map(
-		clock		=> clock,
+		clock_a	=> clock,
+		clocken_a	=> clocken,
+
+		clock_b	=> clock,
+		clocken_b	=> clocken,
 
 		addr_a		=> addr_a,
 		data_in_a	=> data_in_a,

@@ -43,11 +43,15 @@ architecture arch of ControlUnit is
 	signal wr_rd_1	: std_logic;
 	signal wr_mem_1	: std_logic;
 
-	type state_t is (normal, mem_access, multiply, divide, halt);
+	type state_t is (init, normal, multiply0, divide0, end_wait, halt);
 	signal current_state	: state_t;
-	signal next_state		: state_t;
+	signal state_ctr	: integer range 0 to 10;
 
-	signal counter	: integer range 0 to 10;
+	constant mult_cycles	: integer := 6;
+	constant div_cycles		: integer := 8;
+
+	signal mult_start	: boolean;
+	signal div_start	: boolean;
 begin
 	pc_plus_4 <= std_logic_vector(unsigned(pc) + 4);
 
@@ -88,11 +92,11 @@ begin
 							| OPCODE_JAL
 							| OPCODE_JALR
 							| OPCODE_LOAD,
-				 '0' when others;
+				   '0' when others;
 
 	with opcode select
 		wr_mem_1 <= '1' when OPCODE_STORE,
-				  '0' when others;
+					'0' when others;
 
 	branch_taken <= (func3 = "000" and eq = '1')
 					or (func3 = "001" and eq = '0')
@@ -102,53 +106,62 @@ begin
 					or (func3 = "111" and ltu = '0');
 
 	pc_next_1 <= alu_z when (OPCODE = OPCODE_JAL or OPCODE = OPCODE_JALR) else
-			   alu_z when (OPCODE = OPCODE_BRANCH and branch_taken) else
-			   pc_plus_4;
+				 alu_z when (OPCODE = OPCODE_BRANCH and branch_taken) else
+				 pc_plus_4;
 
-	next_state <= mem_access when (current_state = normal and (opcode = OPCODE_LOAD or opcode = OPCODE_STORE)) else
-				 multiply when (current_state = normal and (opcode = OPCODE_REG_COMP and func7 = "0000001" and unsigned(func3) <= "011")) else
-				 divide when (current_state = normal and (opcode = OPCODE_REG_COMP and func7 = "0000001" and unsigned(func3) > "011")) else
-				 normal when (current_state = normal) else
-				 normal when (current_state = mem_access) else
-				 multiply when (current_state = multiply and counter < 6) else
-				 normal when (current_state = multiply and counter >= 6) else
-				 divide when (current_state = divide and counter < 10) else
-				 normal when (current_state = divide and counter >= 10);
-				 -- halt when (opcode = "0000000" and rd = "00000" and func3 = "000" and rs1 = "00000" and rs2 = "00000" and func7 = "0000000");
+	-- state machine
+	mult_start <= true when current_state = normal and (opcode = OPCODE_REG_COMP and func7 = "0000001" and unsigned(func3) <= "011") else false;
+	div_start <= true when current_state = normal and (opcode = OPCODE_REG_COMP and func7 = "0000001" and unsigned(func3) > "011") else false;
 
-	process(clk, reset)
+	process (clk, reset)
 	begin
 		if reset = '0' then
-			current_state <= normal;
-			counter <= 0;
-		elsif falling_edge(clk) then
+			current_state <= init;
+		elsif rising_edge(clk) then
 			if clken = '1' then
-				current_state <= next_state;
-
+				state_ctr <= state_ctr + 1;
 				case current_state is
+					when init =>
+						current_state <= normal;
+						state_ctr <= 0;
 					when normal =>
-						if next_state /= normal then
-							counter <= counter + 1;
-						else
-							counter <= 0;
+						state_ctr <= 0;
+						if mult_start then
+							current_state <= multiply0;
+							state_ctr <= 0;
+						elsif div_start then
+							current_state <= divide0;
+							state_ctr <= 0;
+						elsif (opcode = "0000000") then
+							current_state <= halt;
+							state_ctr <= 0;
 						end if;
-					when multiply | divide =>
-						if next_state /= normal then
-							counter <= counter + 1;
-						else
-							counter <= 0;
+					when multiply0 =>
+						if state_ctr = mult_cycles-2 then
+							current_state <= end_wait;
+							state_ctr <= 0;
 						end if;
-					when others =>
-						counter <= 0;
+					when divide0 =>
+						if state_ctr = div_cycles-2 then
+							current_state <= end_wait;
+							state_ctr <= 0;
+						end if;
+					when end_wait =>
+						current_state <= normal;
+						state_ctr <= 0;
+					when halt =>
+						state_ctr <= 0;
 				end case;
 			end if;
 		end if;
 	end process;
 
-	pc_next <= pc_next_1;
+	with current_state select
+		pc_next <= (others => '0') when init,
+				   pc_next_1 when others;
 
-	wr_pc <= clken when next_state = normal else '0';
-	wr_rd <= wr_rd_1 and clken when next_state = normal else '0';
-	wr_mem <= wr_mem_1 and clken when current_state = mem_access else '0';
+	wr_pc <= '1' when (current_state = normal and not (mult_start or div_start) and opcode /= "0000000") or current_state = end_wait else '0';
+	wr_rd <= wr_rd_1 when (current_state = normal and not (mult_start or div_start)) or current_state = end_wait else '0';
+	wr_mem <= wr_mem_1 when current_state = normal else '0';
 
 end architecture;

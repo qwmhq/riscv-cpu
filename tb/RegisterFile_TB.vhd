@@ -16,6 +16,9 @@ architecture arch of RegisterFile_TB is
 begin
 	UUT : entity work.RegisterFile
 	port map(
+		reset	=> reset,
+		clk		=> clk,
+		clken	=> '1',
 		rs1 	=> rs1,
 		rs2 	=> rs2,
 		rs3 	=> rs3,
@@ -24,9 +27,7 @@ begin
 		r1		=> r1,
 		r2		=> r2,
 		r3		=> r3,
-		wr_en	=> wr_en,
-		clk		=> clk,
-		reset	=> reset
+		wr_en	=> wr_en
 	);
 
 	clk <= not clk after TB_CLK_PD/2;

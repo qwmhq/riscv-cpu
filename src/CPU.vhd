@@ -13,6 +13,7 @@ port(
 	regsel		: in std_logic_vector(4 downto 0);
 
 	pc			: out std_logic_vector(PC_WIDTH-1 downto 0);
+	pc_next		: out std_logic_vector(PC_WIDTH-1 downto 0);
 	mem_addr	: out std_logic_vector(XLEN-1 downto 0);
 	mem_out		: out std_logic_vector(DATA_WIDTH-1 downto 0);
 	mem_mode	: out std_logic_vector(2 downto 0);
@@ -62,14 +63,15 @@ begin
 
 	REGFILE : entity work.RegisterFile
 	port map(
+		reset	=> reset,
+		clk		=> clk,
+		clken	=> clken,
 		rs1		=> rs1,
 		rs2		=> rs2,
 		rs3		=> regsel,
 		rd		=> rd,
 		data_in	=> rd_val,
 		wr_en	=> wr_rd,
-		clk		=> clk,
-		reset	=> reset,
 		r1		=> r1,
 		r2		=> r2,
 		r3		=> regsel_val
@@ -102,14 +104,16 @@ begin
 
 	PROGCOUNTR : entity work.ProgramCounter
 	port map(
+		clk		=> clk,
+		clken	=> clken,
+		reset	=> reset,
 		pc_next	=> pc_next_val,
 		wren	=> wr_pc,
-		clk		=> clk,
-		reset	=> reset,
 		pc		=> pc_val
 	);
 
 	pc <= pc_val;
+	pc_next <= pc_next_val;
 	mem_out <= r2;
 	mem_addr <= alu_z;
 	mem_mode <= func3;

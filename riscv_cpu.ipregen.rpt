@@ -1,5 +1,5 @@
 IP Upgrade report for riscv_cpu
-Sat Oct 26 09:57:18 2024
+Sun Oct 27 07:57:47 2024
 Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 
 
@@ -8,8 +8,7 @@ Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 ---------------------
   1. Legal Notice
   2. IP Upgrade Summary
-  3. Successfully Upgraded IP Components
-  4. IP Upgrade Messages
+  3. IP Upgrade Messages
 
 
 
@@ -36,34 +35,22 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------+
 ; IP Upgrade Summary                                                            ;
 +------------------------------+------------------------------------------------+
-; IP Components Upgrade Status ; Passed - Sat Oct 26 09:57:18 2024              ;
+; IP Components Upgrade Status ; Failed - Sun Oct 27 07:57:47 2024              ;
 ; Quartus Prime Version        ; 23.1std.1 Build 993 05/14/2024 SC Lite Edition ;
 ; Revision Name                ; riscv_cpu                                      ;
-; Top-level Entity Name        ; top                                            ;
+; Top-level Entity Name        ; CPU                                            ;
 ; Family                       ; Cyclone IV E                                   ;
 +------------------------------+------------------------------------------------+
-
-
-+------------------------------------------------------------------------------------------------------------------+
-; Successfully Upgraded IP Components                                                                              ;
-+-------------+----------------+---------+----------------------+----------------------+-----------------+---------+
-; Entity Name ; Component Name ; Version ; Original Source File ; Generation File Path ; New Source File ; Message ;
-+-------------+----------------+---------+----------------------+----------------------+-----------------+---------+
-; PLL         ; ALTPLL         ; 21.1    ; src/PLL.qip          ; src/PLL.vhd          ; src/PLL.qip     ;         ;
-+-------------+----------------+---------+----------------------+----------------------+-----------------+---------+
 
 
 +---------------------+
 ; IP Upgrade Messages ;
 +---------------------+
-Info (11902): Backing up file "src/PLL.vhd" to "src/PLL.BAK.vhd"
-Info (11837): Started upgrading IP component ALTPLL with file "src/PLL.vhd"
-Info (11131): Completed upgrading IP component ALTPLL with file "src/PLL.vhd"
 Info (23030): Evaluation of Tcl script /home/quwam/apps/intelFPGA_lite/23.1std/quartus/common/tcl/internal/ip_regen/ip_regen.tcl was successful
 Info: Quartus Prime Shell was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 584 megabytes
-    Info: Processing ended: Sat Oct 26 09:57:18 2024
-    Info: Elapsed time: 00:00:31
-    Info: Total CPU time (on all processors): 00:01:30
+    Info: Peak virtual memory: 589 megabytes
+    Info: Processing ended: Sun Oct 27 07:57:47 2024
+    Info: Elapsed time: 00:00:07
+    Info: Total CPU time (on all processors): 00:00:19
 
 

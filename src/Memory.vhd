@@ -5,7 +5,11 @@ use work.common_pkg.all;
 
 entity Memory is
 port(
-	clock		: in std_logic;
+	clock_a		: in std_logic;
+	clocken_a	: in std_logic;
+
+	clock_b		: in std_logic;
+	clocken_b	: in std_logic;
 
 	addr_a		: in std_logic_vector(ADDR_WIDTH-1 downto 0);
 	data_in_a	: in std_logic_vector(DATA_WIDTH-1 downto 0);
@@ -127,8 +131,10 @@ begin
 		address_b	=> int_addr_b,
 		byteena_a	=> byteena_a,
 		byteena_b	=> byteena_b,
-		clock_a		=> clock,
-		clock_b		=> clock,
+		clock_a		=> clock_a,
+		enable_a	=> clocken_a,
+		clock_b		=> clock_b,
+		enable_b	=> clocken_b,
 		data_a		=> int_data_in_a,
 		data_b		=> int_data_in_b,
 		wren_a		=> wren_a,
@@ -143,17 +149,10 @@ begin
 							& in_port_data(23 downto 16)
 							& in_port_data(31 downto 24);
 
-	process(clock)
+	process(clock_b)
 	begin
-		if rising_edge(clock) then
+		if rising_edge(clock_b) then
 			-- reg1
-			if (addr_a = ("111" & x"F8") and wren_a = '1') then
-				for i in 0 to 3 loop
-					if byteena_a(i) = '1' then
-						io_reg1((i*8)+7 downto i*8) <= int_data_in_a((i*8)+7 downto i*8);
-					end if;
-				end loop;
-			end if;
 			if (addr_b = ("111" & x"F8") and wren_b = '1') then
 				for i in 0 to 3 loop
 					if byteena_b(i) = '1' then

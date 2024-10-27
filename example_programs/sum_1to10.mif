@@ -11,5 +11,6 @@ CONTENT BEGIN
 	003			: 33400405;  -- reversed bytes of 0x00540433 (add x8,x8,x5)
 	004			: 93280201;  -- reversed bytes of 0x00128293 (addi x5,x5,1)
 	005			: e35c53fe;  -- reversed bytes of 0xfe535ce3 (bge x6,x5,0xfffffff8)
-	[006..1ff]	: 00000000
+	006			: 232c807e;  -- reversed bytes of 0x7e802c23 (sw x8,0x000007f8(x0))
+	[007..1ff]	: 00000000
 END;

@@ -1,5 +1,5 @@
 Info: Start Nativelink Simulation process
-Info: NativeLink has detected a mixed Verilog and VHDL design -- vhdl simulation models will be used
+Info: NativeLink has detected VHDL design -- VHDL simulation models will be used
 
 ========= EDA Simulation Settings =====================
 
@@ -19,6 +19,6 @@ Sim dir               :  simulation/questa
 
 Info: Starting NativeLink simulation with Questa Intel FPGA software
 Sourced NativeLink script /home/quwam/apps/intelFPGA_lite/23.1std/quartus/common/tcl/internal/nativelink/modelsim.tcl
-Warning: File riscv_cpu_run_msim_rtl_vhdl.do already exists - backing up current file as riscv_cpu_run_msim_rtl_vhdl.do.bak3
+Warning: File riscv_cpu_run_msim_rtl_vhdl.do already exists - backing up current file as riscv_cpu_run_msim_rtl_vhdl.do.bak11
 Info: Spawning Questa Intel FPGA Simulation software 
 Info: NativeLink simulation flow was successful

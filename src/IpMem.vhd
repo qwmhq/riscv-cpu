@@ -51,6 +51,8 @@ ENTITY IpMem IS
 		clock_b		: IN STD_LOGIC ;
 		data_a		: IN STD_LOGIC_VECTOR (31 DOWNTO 0);
 		data_b		: IN STD_LOGIC_VECTOR (31 DOWNTO 0);
+		enable_a		: IN STD_LOGIC  := '1';
+		enable_b		: IN STD_LOGIC  := '1';
 		wren_a		: IN STD_LOGIC  := '0';
 		wren_b		: IN STD_LOGIC  := '0';
 		q_a		: OUT STD_LOGIC_VECTOR (31 DOWNTO 0);
@@ -73,8 +75,8 @@ BEGIN
 		address_reg_b => "CLOCK1",
 		byteena_reg_b => "CLOCK1",
 		byte_size => 8,
-		clock_enable_input_a => "BYPASS",
-		clock_enable_input_b => "BYPASS",
+		clock_enable_input_a => "NORMAL",
+		clock_enable_input_b => "NORMAL",
 		clock_enable_output_a => "BYPASS",
 		clock_enable_output_b => "BYPASS",
 		indata_reg_b => "CLOCK1",
@@ -106,6 +108,8 @@ BEGIN
 		byteena_b => byteena_b,
 		clock0 => clock_a,
 		clock1 => clock_b,
+		clocken0 => enable_a,
+		clocken1 => enable_b,
 		data_a => data_a,
 		data_b => data_b,
 		wren_a => wren_a,
@@ -129,10 +133,10 @@ END SYN;
 -- Retrieval info: PRIVATE: BYTE_ENABLE_B NUMERIC "1"
 -- Retrieval info: PRIVATE: BYTE_SIZE NUMERIC "8"
 -- Retrieval info: PRIVATE: BlankMemory NUMERIC "0"
--- Retrieval info: PRIVATE: CLOCK_ENABLE_INPUT_A NUMERIC "0"
--- Retrieval info: PRIVATE: CLOCK_ENABLE_INPUT_B NUMERIC "0"
--- Retrieval info: PRIVATE: CLOCK_ENABLE_OUTPUT_A NUMERIC "0"
--- Retrieval info: PRIVATE: CLOCK_ENABLE_OUTPUT_B NUMERIC "0"
+-- Retrieval info: PRIVATE: CLOCK_ENABLE_INPUT_A NUMERIC "1"
+-- Retrieval info: PRIVATE: CLOCK_ENABLE_INPUT_B NUMERIC "1"
+-- Retrieval info: PRIVATE: CLOCK_ENABLE_OUTPUT_A NUMERIC "1"
+-- Retrieval info: PRIVATE: CLOCK_ENABLE_OUTPUT_B NUMERIC "1"
 -- Retrieval info: PRIVATE: CLRdata NUMERIC "0"
 -- Retrieval info: PRIVATE: CLRq NUMERIC "0"
 -- Retrieval info: PRIVATE: CLRrdaddress NUMERIC "0"
@@ -178,14 +182,14 @@ END SYN;
 -- Retrieval info: PRIVATE: WRADDR_ACLR_B NUMERIC "0"
 -- Retrieval info: PRIVATE: WRADDR_REG_B NUMERIC "1"
 -- Retrieval info: PRIVATE: WRCTRL_ACLR_B NUMERIC "0"
--- Retrieval info: PRIVATE: enable NUMERIC "0"
+-- Retrieval info: PRIVATE: enable NUMERIC "1"
 -- Retrieval info: PRIVATE: rden NUMERIC "0"
 -- Retrieval info: LIBRARY: altera_mf altera_mf.altera_mf_components.all
 -- Retrieval info: CONSTANT: ADDRESS_REG_B STRING "CLOCK1"
 -- Retrieval info: CONSTANT: BYTEENA_REG_B STRING "CLOCK1"
 -- Retrieval info: CONSTANT: BYTE_SIZE NUMERIC "8"
--- Retrieval info: CONSTANT: CLOCK_ENABLE_INPUT_A STRING "BYPASS"
--- Retrieval info: CONSTANT: CLOCK_ENABLE_INPUT_B STRING "BYPASS"
+-- Retrieval info: CONSTANT: CLOCK_ENABLE_INPUT_A STRING "NORMAL"
+-- Retrieval info: CONSTANT: CLOCK_ENABLE_INPUT_B STRING "NORMAL"
 -- Retrieval info: CONSTANT: CLOCK_ENABLE_OUTPUT_A STRING "BYPASS"
 -- Retrieval info: CONSTANT: CLOCK_ENABLE_OUTPUT_B STRING "BYPASS"
 -- Retrieval info: CONSTANT: INDATA_REG_B STRING "CLOCK1"
@@ -217,6 +221,8 @@ END SYN;
 -- Retrieval info: USED_PORT: clock_b 0 0 0 0 INPUT NODEFVAL "clock_b"
 -- Retrieval info: USED_PORT: data_a 0 0 32 0 INPUT NODEFVAL "data_a[31..0]"
 -- Retrieval info: USED_PORT: data_b 0 0 32 0 INPUT NODEFVAL "data_b[31..0]"
+-- Retrieval info: USED_PORT: enable_a 0 0 0 0 INPUT VCC "enable_a"
+-- Retrieval info: USED_PORT: enable_b 0 0 0 0 INPUT VCC "enable_b"
 -- Retrieval info: USED_PORT: q_a 0 0 32 0 OUTPUT NODEFVAL "q_a[31..0]"
 -- Retrieval info: USED_PORT: q_b 0 0 32 0 OUTPUT NODEFVAL "q_b[31..0]"
 -- Retrieval info: USED_PORT: wren_a 0 0 0 0 INPUT GND "wren_a"
@@ -227,6 +233,8 @@ END SYN;
 -- Retrieval info: CONNECT: @byteena_b 0 0 4 0 byteena_b 0 0 4 0
 -- Retrieval info: CONNECT: @clock0 0 0 0 0 clock_a 0 0 0 0
 -- Retrieval info: CONNECT: @clock1 0 0 0 0 clock_b 0 0 0 0
+-- Retrieval info: CONNECT: @clocken0 0 0 0 0 enable_a 0 0 0 0
+-- Retrieval info: CONNECT: @clocken1 0 0 0 0 enable_b 0 0 0 0
 -- Retrieval info: CONNECT: @data_a 0 0 32 0 data_a 0 0 32 0
 -- Retrieval info: CONNECT: @data_b 0 0 32 0 data_b 0 0 32 0
 -- Retrieval info: CONNECT: @wren_a 0 0 0 0 wren_a 0 0 0 0

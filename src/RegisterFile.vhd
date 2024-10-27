@@ -4,17 +4,21 @@ use ieee.numeric_std.all;
 
 entity RegisterFile is
 port(
-	rs1		: in	std_logic_vector( 4 downto 0);
-	rs2		: in	std_logic_vector( 4 downto 0);
-	rs3		: in	std_logic_vector( 4 downto 0);
-	data_in	: in	std_logic_vector(31 downto 0);
-	rd		: in	std_logic_vector( 4 downto 0);
-	wr_en	: in	std_logic;
-	clk		: in 	std_logic;
-	reset	: in	std_logic;
-	r1		: out	std_logic_vector(31 downto 0);
-	r2		: out	std_logic_vector(31 downto 0);
-	r3		: out	std_logic_vector(31 downto 0)
+	reset	: in std_logic;
+	clk		: in std_logic;
+	clken	: in std_logic;
+
+	rs1		: in std_logic_vector( 4 downto 0);
+	rs2		: in std_logic_vector( 4 downto 0);
+	rs3		: in std_logic_vector( 4 downto 0);
+
+	rd		: in std_logic_vector( 4 downto 0);
+	wr_en	: in std_logic;
+	data_in	: in std_logic_vector(31 downto 0);
+
+	r1		: out std_logic_vector(31 downto 0);
+	r2		: out std_logic_vector(31 downto 0);
+	r3		: out std_logic_vector(31 downto 0)
 );
 end RegisterFile;
 
@@ -37,9 +41,9 @@ begin
 		if reset = '0' then
 		-- reset all registers
 			mutable_registers <= (others => (others => '0'));
-		elsif falling_edge(clk) then
+		elsif rising_edge(clk) then
 		-- update selected register (rd)
-			if wr_en = '1' and rd_idx > 0 then
+			if wr_en = '1' and clken = '1' and rd_idx > 0 then
 				mutable_registers(rd_idx) <= data_in;
 			end if;
 		end if;

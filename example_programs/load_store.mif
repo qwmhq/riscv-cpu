@@ -6,6 +6,8 @@ DATA_RADIX=HEX;         -- Hexadecimal for data
 
 CONTENT BEGIN
     0x00000000 : 0x93029006;  -- reversed bytes of 0x06900293 (addi x5, x0, 0x00000069)
-    0x00000001 : 0x232a5000;  -- reversed bytes of 0x00502a23 (sw x5, 20(x0))
-	0x00000002 : 0x83234001;  -- reversed bytes of 0x01402383 (lw x7, 20(x0))
-END;
+    0x00000001 : 0x13030042;  -- reversed bytes of 0x42000313 (addi x6, x0, 0x00000420)
+    0x00000002 : 0x23245002;  -- reversed bytes of 0x02502423 (sw x5, 40(x0))
+    0x00000003 : 0x23266002;  -- reversed bytes of 0x02602623 (sw x6, 44(x0))
+	0x00000004 : 0x83238002;  -- reversed bytes of 0x02802383 (lw x7, 40(x0))
+	0x00000005 : 0x03248002;  -- reversed bytes of 0x02802403 (lw x8, 44(x0))
