@@ -28,6 +28,7 @@ architecture arch of CPU_TB is
 
 	type program_t is array (natural range <>) of std_logic_vector(INST_WIDTH-1 downto 0);
 
+	/*
 	-- sum 1 to 10
 	signal program        : program_t(0 to 7) := (
 		   x"00100293",
@@ -39,7 +40,6 @@ architecture arch of CPU_TB is
 		   x"7e802c23",
 		   x"00000000"
 	);
-	/*
 	-- load_store
 	signal program        : program_t(0 to 7) := (
 		   x"06900293",
@@ -62,6 +62,7 @@ architecture arch of CPU_TB is
 		   x"00000000",
 		   x"00000000"
 	);
+	*/
 	-- division
 	signal program        : program_t(0 to 7) := (
 		   x"fce00293",
@@ -73,7 +74,6 @@ architecture arch of CPU_TB is
 		   x"00000000",
 		   x"00000000"
 	);
-	*/
 
 	signal program_idx	: integer range program'low to program'high;
 

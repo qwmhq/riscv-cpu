@@ -27,7 +27,7 @@ port(
 	disp_anode	: out std_logic_vector(7 downto 0);
 
 	-- signaltap sampling clock
-	pll_c1	: out std_logic;
+	pll_c2	: out std_logic;
 	
 	-- switch input
 	port0	: in std_logic_vector((DATA_WIDTH/2)-1 downto 0)
@@ -45,6 +45,7 @@ architecture arch of top is
 	signal clock_count	: integer range 0 to maxclockcount;
 	signal clock_en		: std_logic;
 	signal clock_25		: std_logic;
+	signal clock_25_inv	: std_logic;
 
 	-- lcd
 	signal lcd_val16		: std_logic_vector(15 downto 0);
@@ -184,7 +185,7 @@ begin
 		clock_a	=> clock_25,
 		clocken_a => '1',
 
-		clock_b	=> clock_25,
+		clock_b	=> clock_25_inv,
 		clocken_b => '1',
 
 		addr_a		=> mem_addr_a,
@@ -233,10 +234,11 @@ begin
 	(
 		areset	=> resetn,
 		inclk0	=> clock,
-		c1		=> pll_c1,
+		c2		=> pll_c2,
+		c1		=> clock_25_inv,
 		c0		=> clock_25
 	);
-
+	
 -- ----------------------------------------------------
 -- Seven Segment Controller
 -- ----------------------------------------------------

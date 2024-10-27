@@ -47,7 +47,7 @@ architecture arch of ControlUnit is
 	signal current_state	: state_t;
 	signal state_ctr	: integer range 0 to 10;
 
-	constant mult_cycles	: integer := 6;
+	constant mult_cycles	: integer := 7;
 	constant div_cycles		: integer := 8;
 
 	signal mult_start	: boolean;
