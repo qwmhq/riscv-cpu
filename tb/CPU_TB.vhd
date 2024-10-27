@@ -20,7 +20,7 @@ architecture arch of CPU_TB is
 	signal mem_out	: std_logic_vector(DATA_WIDTH-1 downto 0);
 	signal mem_mode	: std_logic_vector(2 downto 0);
 	signal wr_mem	: std_logic;
-	signal mem_out_b	: std_logic_vector(DATA_WIDTH-1 downto 0);
+	signal mem_out_a	: std_logic_vector(DATA_WIDTH-1 downto 0);
 
 	signal out_port_data	: std_logic_vector(DATA_WIDTH-1 downto 0);
 
@@ -51,6 +51,7 @@ architecture arch of CPU_TB is
 		   x"00000000",
 		   x"00000000"
 	);
+	*/
 	-- multiplication
 	signal program        : program_t(0 to 7) := (
 		   x"00300313",
@@ -62,7 +63,7 @@ architecture arch of CPU_TB is
 		   x"00000000",
 		   x"00000000"
 	);
-	*/
+	/*
 	-- division
 	signal program        : program_t(0 to 7) := (
 		   x"fce00293",
@@ -74,6 +75,7 @@ architecture arch of CPU_TB is
 		   x"00000000",
 		   x"00000000"
 	);
+	*/
 
 	signal program_idx	: integer range program'low to program'high;
 
@@ -110,7 +112,7 @@ begin
 		data_in_a	=> (others => '0'),
 		wren_a		=> '0',
 		mode_a		=> "010",
-		data_out_a	=> mem_out_b,
+		data_out_a	=> mem_out_a,
 
 		-- data read/write
 		addr_b		=> mem_addr(ADDR_WIDTH-1 downto 0),
@@ -128,7 +130,8 @@ begin
 
 
 	program_idx <= to_integer(unsigned(pc(4 downto 2)));
-	inst <= program(program_idx) when to_integer(unsigned(pc(31 downto 2))) <= program'high else (others => '0');
+	-- inst <= program(program_idx) when to_integer(unsigned(pc(31 downto 2))) <= program'high else (others => '0');
+	inst <= mem_out_a;
 
 	STIMULUS : process
 	begin

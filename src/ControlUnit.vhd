@@ -47,7 +47,7 @@ architecture arch of ControlUnit is
 	signal current_state	: state_t;
 	signal state_ctr	: integer range 0 to 10;
 
-	constant mult_cycles	: integer := 7;
+	constant mult_cycles	: integer := 6;
 	constant div_cycles		: integer := 8;
 
 	signal mult_start	: boolean;
@@ -117,6 +117,7 @@ begin
 	begin
 		if reset = '0' then
 			current_state <= init;
+			state_ctr <= 0;
 		elsif rising_edge(clk) then
 			if clken = '1' then
 				state_ctr <= state_ctr + 1;
@@ -156,12 +157,16 @@ begin
 		end if;
 	end process;
 
-	with current_state select
-		pc_next <= (others => '0') when init,
-				   pc_next_1 when others;
+	-- with current_state select
+	-- 	pc_next <= (others => '0') when init,
+	-- 			   pc_next_1 when others;
 
 	wr_pc <= '1' when (current_state = normal and not (mult_start or div_start) and opcode /= "0000000") or current_state = end_wait else '0';
 	wr_rd <= wr_rd_1 when (current_state = normal and not (mult_start or div_start)) or current_state = end_wait else '0';
 	wr_mem <= wr_mem_1 when current_state = normal else '0';
+
+	pc_next <= (others => '0') when current_state = init else
+			   pc_next_1 when wr_pc = '1' else
+			   pc;
 
 end architecture;

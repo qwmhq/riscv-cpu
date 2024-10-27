@@ -10,6 +10,8 @@
 	addi t0, t0, 1		# index++
 	bge	a1, t0, .loop	# loop condition
 
+	sw a0, 0x7F8(x0)	# store result in memory location 0x7f8
+
 
 #  assembly code:
 #	00600593

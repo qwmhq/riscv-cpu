@@ -104,6 +104,7 @@ architecture arch of top is
 	signal cpu_clock_en		: std_logic;
 	signal cpu_mem_addr_out	: std_logic_vector(31 downto 0);
 	signal cpu_pc			: std_logic_vector(31 downto 0);
+	signal cpu_pc_next		: std_logic_vector(31 downto 0);
 	signal cpu_reset		: std_logic;
 
 	-- seven segment display
@@ -218,6 +219,7 @@ begin
 		regsel	=> regsel,
 
 		pc			=> cpu_pc,
+		pc_next		=> cpu_pc_next,
 		mem_addr	=> cpu_mem_addr_out,
 		mem_out		=> mem_data_in_b,
 		mem_mode	=> mem_mode_b,
@@ -287,7 +289,7 @@ begin
 	mem_mode_a <= "010";
 	mem_data_in_a <= buf_reg;
 	with current_state select
-		mem_addr_a <= cpu_pc(ADDR_WIDTH-1 downto 0) when execute_0 | execute_1,
+		mem_addr_a <= cpu_pc_next(ADDR_WIDTH-1 downto 0) when execute_0 | execute_1,
 							mem_addr_io when others;						
 	
 -- --------------------------------------------------------	

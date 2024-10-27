@@ -35,21 +35,21 @@ file . "src/ALU.vhd" "d46069b2cb2d4471dabb9e3559cbb7c1e3771e54" "20240917111546.
 file . "tb/ALU_TB.vhd" "2de4c4c4d4caf9fb5b9d6700156327cfa44c6c5c" "20240917111546.723":
   entity alu_tb at 1( 0) + 0 on 1999;
   architecture arch of alu_tb at 8( 100) + 0 on 2000;
-file . "src/InstDecoder.vhd" "76bd1c12543cb388ff4c378e8af512c8787becfd" "20240903080935.817":
-  entity instdecoder at 1( 0) + 0 on 1931;
-  architecture arch of instdecoder at 19( 460) + 0 on 1932;
-file . "tb/InstDecoder_TB.vhd" "b658d7f3023d362a5342ccc19bd944ac8fc081ee" "20240903080935.819":
-  entity instdecoder_tb at 1( 0) + 0 on 1933;
-  architecture arch of instdecoder_tb at 7( 90) + 0 on 1934;
-file . "src/ControlUnit.vhd" "b25785833cee3a6e1ddd32e464c0aae902e476fe" "20240903080936.818":
-  entity controlunit at 1( 0) + 0 on 1943;
-  architecture arch of controlunit at 33( 917) + 0 on 1944;
-file . "tb/ControlUnit_TB.vhd" "4bac8617e8267001f733721bff8433062fdd4e87" "20240903080936.821":
-  entity controlunit_tb at 1( 0) + 0 on 1945;
-  architecture arch of controlunit_tb at 9( 141) + 0 on 1946;
-file . "src/common_pkg.vhd" "9a08956b5d4c34772ea6619f4bd17913a22fc36e" "20241024110245.402":
-  package common_pkg at 1( 0) + 0 on 2225;
-  package body common_pkg at 31( 1244) + 0 on 2226;
+file . "src/InstDecoder.vhd" "76bd1c12543cb388ff4c378e8af512c8787becfd" "20241027124418.861":
+  entity instdecoder at 1( 0) + 0 on 2403;
+  architecture arch of instdecoder at 19( 460) + 0 on 2404;
+file . "tb/InstDecoder_TB.vhd" "b658d7f3023d362a5342ccc19bd944ac8fc081ee" "20241027124418.862":
+  entity instdecoder_tb at 1( 0) + 0 on 2405;
+  architecture arch of instdecoder_tb at 7( 90) + 0 on 2406;
+file . "src/ControlUnit.vhd" "738f7390b41152ad9afc4ba03d75338a23080c1a" "20241027124422.654":
+  entity controlunit at 1( 0) + 0 on 2407;
+  architecture arch of controlunit at 34( 940) + 0 on 2408;
+file . "tb/ControlUnit_TB.vhd" "f27b8fef03a1b4a094cdf47d9f61a4a12224e30b" "20241027124422.657":
+  entity controlunit_tb at 1( 0) + 0 on 2409;
+  architecture arch of controlunit_tb at 9( 141) + 0 on 2410;
+file . "src/common_pkg.vhd" "d88aa312b58553496d8b7c9c943942e9eb6dc0d0" "20241027124418.818":
+  package common_pkg at 1( 0) + 0 on 2401 body;
+  package body common_pkg at 40( 1678) + 0 on 2402;
 file . "src/CPU.vhd" "d3c36010b40603033ddd3c7027ec0c76bd9a768c" "20240903160254.916":
   entity cpu at 1( 0) + 0 on 1953;
   architecture arch of cpu at 23( 566) + 0 on 1954;
