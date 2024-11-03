@@ -1,5 +1,5 @@
 IP Upgrade report for riscv_cpu
-Sun Oct 27 07:57:47 2024
+Mon Oct 28 07:57:49 2024
 Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 
 
@@ -35,10 +35,10 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------+
 ; IP Upgrade Summary                                                            ;
 +------------------------------+------------------------------------------------+
-; IP Components Upgrade Status ; Failed - Sun Oct 27 07:57:47 2024              ;
+; IP Components Upgrade Status ; Failed - Mon Oct 28 07:57:49 2024              ;
 ; Quartus Prime Version        ; 23.1std.1 Build 993 05/14/2024 SC Lite Edition ;
 ; Revision Name                ; riscv_cpu                                      ;
-; Top-level Entity Name        ; CPU                                            ;
+; Top-level Entity Name        ; top                                            ;
 ; Family                       ; Cyclone IV E                                   ;
 +------------------------------+------------------------------------------------+
 
@@ -48,9 +48,9 @@ https://fpgasoftware.intel.com/eula.
 +---------------------+
 Info (23030): Evaluation of Tcl script /home/quwam/apps/intelFPGA_lite/23.1std/quartus/common/tcl/internal/ip_regen/ip_regen.tcl was successful
 Info: Quartus Prime Shell was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 589 megabytes
-    Info: Processing ended: Sun Oct 27 07:57:47 2024
-    Info: Elapsed time: 00:00:07
+    Info: Peak virtual memory: 598 megabytes
+    Info: Processing ended: Mon Oct 28 07:57:49 2024
+    Info: Elapsed time: 00:00:06
     Info: Total CPU time (on all processors): 00:00:19
 
 
