@@ -105,7 +105,8 @@ begin
 					or (func3 = "110" and ltu = '1')
 					or (func3 = "111" and ltu = '0');
 
-	pc_next_1 <= alu_z when (OPCODE = OPCODE_JAL or OPCODE = OPCODE_JALR) else
+	pc_next_1 <= alu_z when (OPCODE = OPCODE_JAL) else
+				 alu_z(31 downto 1) & '0' when (OPCODE = OPCODE_JALR) else
 				 alu_z when (OPCODE = OPCODE_BRANCH and branch_taken) else
 				 pc_plus_4;
 
